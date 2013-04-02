@@ -1,8 +1,23 @@
 @CHARSET "UTF-8";
+/*Login.jsp  */
+ #login1{
+	 border: 1px solid #FFFDDE;
+     width: 690px;
+     height:440px;
+     margin: 0  auto;
+      
+     background-image: url(../images/denglu.png); 
+}
+
+#login_1{
+	margin-top: 70px;
+}
 
 body p {
 	text-align: right;
 }
+
+/* Register.jsp  */
 
 #bu1{
 	border: 0;
@@ -10,11 +25,16 @@ body p {
 
 #bu1 a{
 	cursor:pointer;
-	color: red;
+	color: black;
+}
+
+#bu1 a:HOVER{
+	text-decoration:line-through;
+	color:red;
 }
 
 #checkCode{
-background-image:url(111.jpg);
+
 font-family:Arial,宋体;
 font-style:italic;
 color:green;
@@ -24,7 +44,8 @@ letter-spacing:3px;
 font-weight:bolder;
 }
 
-#su1{
-	border: 0;
-	background-color: #FF9900;
+
+
+#reg1{
+	margin-top: 12px;
 }

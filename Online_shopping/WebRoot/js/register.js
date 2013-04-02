@@ -5,10 +5,13 @@ var codeLength = 4;//验证码的长度
 var checkCode = document.getElementById("checkCode");
 checkCode.value = "";
 
-var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H',
+		'J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z',
+		'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r'
+		,'s','t','u','v','w','x','y','z');
 
 for(var i=0;i<codeLength;i++) {
-   var charIndex = Math.floor(Math.random()*36);
+   var charIndex = Math.floor(Math.random()*61);
    code +=selectChar[charIndex];
 }
 if(code.length != codeLength){
@@ -18,10 +21,11 @@ checkCode.value = code;
 }
 
 function validate () {
+	/*alert(11);*/
 var inputCode = document.getElementById("input1").value.toUpperCase();
-
+code=code.toUpperCase();
 if(inputCode.length <=0) {
-   alert("请输入验证码！");
+	document.getElementById("sp1").innerHTML="验证码为空";
    return false;
 }
 else if(inputCode != code ){
@@ -30,7 +34,17 @@ else if(inputCode != code ){
    return false;
 }
 else {
-   alert("成功！");
+   alert("成功！ 验证码为"+code);
    return true;
 }
+}
+
+
+function changebg(){
+	//alert(arguments[0].currentTarget);
+	arguments[0].currentTarget.style.background="yellow";
+}
+
+function delbg() {
+	arguments[0].currentTarget.style.background="none";
 }

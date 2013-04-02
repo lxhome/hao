@@ -36,11 +36,11 @@
 		<img src="images/1.png" id="top_img"></img>
 		<div style="margin-top: 6px;"><span id="hao_time">加载当前时间……</span> </div>
 		<ul id="hao_top1">
-			<li class=""><a href="#" target="_parent">购物车</a>
+			<li class=""><a href="Cart.jsp" target="_parent">购物车</a>
 			</li>
-			<li class=""><a href="#" target="_parent">登录</a>
+			<li class=""><a href="Login.jsp" target="_self">登录</a>
 			</li>
-			<li class=""><a href="#" target="_parent">注册</a>
+			<li class=""><a href="Register.jsp" target="_self">注册</a>
 			</li>			
 		<!-- <li><script type="text/JavaScript">showTime();</script></li> -->	
 		</ul>

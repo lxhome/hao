@@ -1,3 +1,6 @@
+<%@page import="sun.misc.GC,java.math.*"%>
+<%@page import="com.hao.model.Goods"%>
+<%@page import="com.hao.model.GoodsCl"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
@@ -199,12 +202,12 @@
 					</img>
 				</div>
 
-		
+
 			<div id="hao_ad51">
 					<a href="JavaScript:showtj(1);">《</a> 
 				</div>
-				
-				
+
+
 				<div id="d1" style="background-image: url(images/hu1.jpg);display: none;">
 				</div>
 				<div id="d2" style="background-image: url(images/hu2.jpg);display: none;">			
@@ -213,7 +216,7 @@
 				</div>
 				<div id="d4" style="background-image: url(images/hu4.jpg);display: none;" >             
 				</div>				
-				
+
 				<div id="hao_ad53">
 					<!-- <a class="btn" onmouseover="showtj(1);" target="_self" href="#"><i
 						class="icon-arrow-right"></i>
@@ -223,36 +226,31 @@
 
 			</div>
 			<!--ad5 end  -->
+<%
+           GoodsCl gc=new GoodsCl();
+           ArrayList <Goods>al =gc.getGoods();
+         
+ %>
+
 
 			<div id="hao_ad6">
 				<font color="#FF9900"><strong>今日闪价 </strong> </font> <font
 					size="2px" color="red">&nbsp;&nbsp;&nbsp;每日更新</font>
 				<div id="hao_ad61"></div>
-				<div id="sj1" ><img src="images/sj001.png"></img>
-				<span>123</span>
+				<%  for(int i=0;i<8;i++){ %>
+				<div id="sj1" ><img src="img/<%=al.get(i).getG_images()%>"></img>
+				<span><%=al.get(i).getG_name() %>
+				<br>
+				<%
+		BigDecimal b=new BigDecimal(al.get(i).getG_price());
+		float f1=b.setScale(1,BigDecimal.ROUND_HALF_UP).floatValue(); %>
+				
+				￥<%=f1%>
+				</span>
 				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>
-				<div id="sj1"><img src="images/sj001.png"></img>
-				<span>123</span>
-				</div>				
-				<img src="images/sj001.png"></img>
+				
+			<%} %>	
+				
 			</div>
 			<!--ad6 end  -->
 
@@ -274,6 +272,6 @@
 			style="width:980px;margin-top: 6px;"> </a>
 		<jsp:include page="Bottom.jsp"></jsp:include>
 	</div>
-	
+
 </body>
 </html>

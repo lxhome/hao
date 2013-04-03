@@ -50,9 +50,9 @@
 	<div class="navbar navbar-inverse">
 			<!-- 定背景颜色-->
 			<div class="navbar-inner">
-				<a class="brand" href="index.jsp">首页</a> <a class="brand" href="#">服装</a>
+				<a class="brand" href="index.jsp">首页</a> <a class="brand" href="#">服饰</a>
 				<a class="brand" href="#">鞋包</a> <a class="brand" href="#">珠宝手表</a>
-				<a class="brand" href="#">数码</a> <a class="brand" href="#">家电</a> <a
+				<a class="brand" href="#">数码</a> <a class="brand" href="#">电子产品</a> <a
 					class="brand" href="#">日用百货</a> <a class="brand" href="#">文化玩乐</a>
 				<a class="brand" href="#">汽车用品</a><a class="brand" href="#">苹果/配件</a>
 				<!-- Everything you want hidden at 940px or less, place within here -->

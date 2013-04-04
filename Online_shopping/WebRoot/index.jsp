@@ -47,39 +47,39 @@
 				<font size="5" style="font-weight: bold;padding-left: 15px;">商城服务</font>
 				<hr>
 				<ul id="ad12" style="margin: 0px;">
-					<li><a href="#"><h4>服装</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=fz&pageNow=1"><h4>服装</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>鞋包</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=xb&pageNow=1"><h4>鞋包</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>珠宝手表</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=zb&pageNow=1"><h4>珠宝手表</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>数码</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=sm&pageNow=1"><h4>数码</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>家电</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=dz&pageNow=1"><h4>电子产品</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>日用百货</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=ry&pageNow=1"><h4>日用百货</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>文化玩乐</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=wh&pageNow=1"><h4>文化玩乐</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>汽车用品</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=qz&pageNow=1"><h4>汽车用品</h4>
 					</a>
 					<hr>
 					</li>
-					<li><a href="#"><h4>苹果/配件</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=pg&pageNow=1"><h4>苹果/配件</h4>
 					</a>
 					<hr>
 					</li>
@@ -301,7 +301,7 @@
 			<!--ad5 end  -->
 			<%
 				GoodsCl gc = new GoodsCl();
-				ArrayList<Goods> al = gc.getGoods();
+				ArrayList<Goods> al = gc.getNewGoods();
 			%>
 
 

@@ -10,64 +10,235 @@ public class GoodsCl {
 	private Connection ct = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-	
-	//获取所有的商品
-    public ArrayList<Goods> getGoods(){
-    ArrayList<Goods> al	=new ArrayList<Goods>();
-    ct = new ConnDB().getConn();
-	try {
-		ps = ct.prepareStatement("select * from goods");
-	    rs=ps.executeQuery();
-	    while(rs.next()){
-	    	Goods gs=new Goods();
-	    	gs.setGoodsId(rs.getInt(1));
-	    	gs.setG_name(rs.getString(2));
-	    	gs.setG_price(rs.getFloat(3));
-	    	gs.setG_infor(rs.getString(4));
-	    	gs.setG_amount(rs.getInt(5));
-	    	gs.setG_type(rs.getString(6));
-	    	gs.setG_images(rs.getString(7));
-	    	gs.setSpecificClass(rs.getString(8));
-	    	al.add(gs);
-	/* System.out.println(rs.getFloat(3));*/
-	    }
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		this.close();
+	private int pageSize = 5;
+
+	// 获取所有的商品
+	public ArrayList<Goods> getGoods() {
+		ArrayList<Goods> al = new ArrayList<Goods>();
+		ct = new ConnDB().getConn();
+		try {
+			ps = ct.prepareStatement("select * from goods");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Goods gs = new Goods();
+				setG(gs, rs);
+				al.add(gs);
+				/* System.out.println(rs.getFloat(3)); */
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+
+		return al;
 	}
 
-    return al;
-    }
-    
-    //获得特定的某个商品
-	public Goods get_aGoods(int id){
-		Goods gs=new Goods();
-		ct=new ConnDB().getConn();
+	// 获取最新的8个商品
+	public ArrayList<Goods> getNewGoods() {
+		ArrayList<Goods> al = new ArrayList<Goods>();
+		ct = new ConnDB().getConn();
 		try {
-			ps=ct.prepareStatement("select * from GOODS where GOODSID="+id);
-			rs=ps.executeQuery();
-			while(rs.next()){
-		    	gs.setGoodsId(rs.getInt(1));
-		    	gs.setG_name(rs.getString(2));
-		    	gs.setG_price(rs.getFloat(3));
-		    	gs.setG_infor(rs.getString(4));
-		    	gs.setG_amount(rs.getInt(5));
-		    	gs.setG_type(rs.getString(6));
-		    	gs.setG_images(rs.getString(7));
-		    	gs.setSpecificClass(rs.getString(8));
+			ps = ct.prepareStatement("select * from myshopping.goods order by g_adddate desc  limit 0,8");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Goods gs = new Goods();
+				setG(gs, rs);
+				al.add(gs);
+				/* System.out.println(rs.getFloat(3)); */
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+
+		return al;
+	}
+
+	// 获得特定的某个商品
+	public Goods get_aGoods(int id) {
+		Goods gs = new Goods();
+		ct = new ConnDB().getConn();
+		try {
+			ps = ct.prepareStatement("select * from GOODS where GOODSID=" + id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				setG(gs, rs);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-		}finally{
+		} finally {
 			this.close();
 		}
-		
+
 		return gs;
 	}
+
+	// 获得某种类的所有商品信息
+	public ArrayList<Goods> get_TypeGoods(String t) {
+		ArrayList<Goods> al = new ArrayList<Goods>();
+		String str = this.change(t);
+		ct = new ConnDB().getConn();
+		String sql = "select * from myshopping.goods where g_type='" + str
+				+ "'order by g_adddate desc;";
+		// select * from myshopping.goods where g_type="电子产品" order by g_adddate
+		// desc;
+		try {
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Goods gs = new Goods();
+				setG(gs, rs);
+				al.add(gs);
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return al;
+	}
+
+	// 转换1
+	public String change(String t) {
+		String str = "";
+		if (t.equals("fz"))
+			str = "服饰";
+		else if (t.equals("xb"))
+			str = "鞋包";
+		else if (t.equals("zb"))
+			str = "珠宝手表";
+		else if (t.equals("sm"))
+			str = "数码";
+		else if (t.equals("dz"))
+			str = "电子产品";
+		else if (t.equals("ry"))
+			str = "日用百货";
+		else if (t.equals("wh"))
+			str = "文化玩乐";
+		else if (t.equals("qc"))
+			str = "汽车用品";
+		else if (t.equals("pg"))
+			str = "苹果/配件";
+		return str;
+	}
+
+	// 转换2
+		public String change2(String t) {
+			if (t.equals("服饰"))
+				t ="fz" ;
+			else if (t.equals("鞋包"))
+				t = "xb";
+			else if (t.equals("珠宝手表"))
+				t ="zb" ;
+			else if (t.equals("数码"))
+				t ="sm" ;
+			else if (t.equals("电子产品"))
+				t = "dz";
+			else if (t.equals( "日用百货"))
+				t ="ry";
+			else if (t.equals("文化玩乐"))
+				t ="wh" ;
+			else if (t.equals("汽车用品"))
+				t = "qc";
+			else if (t.equals("苹果/配件"))
+				t= "pg";
+		  return t;
+		}
 	
-	public void close(){
+	// 返回数据总页数
+	public int getPageCount(String t) {
+		int rowCount = 0;// 总共有几行记录
+		int pageCount = 0;
+		String str = change(t);
+		try {
+			// 得到连接
+			ct = new ConnDB().getConn();
+			// 查询
+			String sql = "select count(*) from myshopping.goods where g_type='"
+					+ str + "'";
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				rowCount = rs.getInt(1);
+			}
+
+			if (rowCount * pageSize == 0) {
+				pageCount = rowCount / pageSize;
+			} else {
+				pageCount = rowCount / pageSize + 1;
+			}
+
+			// 计算pageCount
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+/*System.out.println("	rowCount="+rowCount+"//qwepageSize="+pageSize);	
+System.out.println("pageCount"+pageCount);*/
+		return pageCount;
+	}
+
+	// 得到用户想要的显示的用户信息
+	public ArrayList<Goods> getGoodsByPage(int pageNow, String t) {
+
+		ArrayList<Goods> al = new ArrayList<Goods>();
+		String str = change(t);
+		try {
+			ct = new ConnDB().getConn();
+			// 创建Statement
+			String sql = "select * from myshopping.goods  where  g_type='"+str+
+					"' and goodsid not in(select t.goodsid from (select * from " +
+					"myshopping.goods where g_type='"+str+"' limit 0,"
+					+ pageSize * (pageNow - 1)
+					+ ")as t)limit 0,"
+					+ pageSize
+					+ ";";
+			// select * from myshopping.goods where g_type="电子产品" and goodsid
+			// not in(select t.goodsid from (select * from myshopping.goods
+			// where g_type="电子产品" limit 0,1)as t) limit 0,1 ;
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			// 开始将rs封装ArrayList
+			while (rs.next()) {
+				Goods gs = new Goods();
+				setG(gs, rs);
+				al.add(gs);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return al;
+	}
+
+	public void setG(Goods gs, ResultSet rs) {
+		try {
+			gs.setGoodsId(rs.getInt(1));
+			gs.setG_name(rs.getString(2));
+			gs.setG_price(rs.getFloat(3));
+			gs.setG_infor(rs.getString(4));
+			gs.setG_amount(rs.getInt(5));
+			gs.setG_type(rs.getString(6));
+			gs.setG_images(rs.getString(7));
+			gs.setSpecificClass(rs.getString(8));
+			//System.out.println(rs.getInt(1)+' '+rs.getString(2)+""+rs.getFloat(3));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void close() {
 		try {
 			if (ct != null) {
 				ct.close();

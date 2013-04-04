@@ -93,3 +93,50 @@ font-weight:bolder;
 #sex{
 width: 55px;	
 }
+
+#gl img{
+	width:140px;
+	heigh:100px;
+}
+
+#gl2{
+	position:relative;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	overflow: hidden;
+}
+
+#gl3{
+	float:left;
+	width: 320px;
+    margin-top: 10px;
+    border-bottom: 1px solid gray; 
+}
+
+#gl4{
+	float:left;
+	height:143px; 
+	width: 320px;
+
+	border-bottom: 1px dotted gray;  
+}
+
+#gl5{
+	float:left;
+	height:143px; 
+	width: 320px;	
+	
+	border-bottom: 1px dotted gray;  
+}
+
+#gsl{
+	float:left;
+	text-align:center;
+	position:relative;
+	font-size: 16px;
+	font-weight: normal;
+	margin-left: 40%;
+	margin-bottom: 30px;
+}
+

@@ -62,11 +62,16 @@
 	<div class="navbar navbar-inverse">
 			<!-- 定背景颜色-->
 			<div class="navbar-inner">
-				<a class="brand" href="index.jsp">首页</a> <a class="brand" href="#">服饰</a>
-				<a class="brand" href="#">鞋包</a> <a class="brand" href="#">珠宝手表</a>
-				<a class="brand" href="#">数码</a> <a class="brand" href="#">电子产品</a> <a
-					class="brand" href="#">日用百货</a> <a class="brand" href="#">文化玩乐</a>
-				<a class="brand" href="#">汽车用品</a><a class="brand" href="#">苹果/配件</a>
+				<a class="brand" href="index.jsp">首页</a> 
+				<a class="brand" href="GoodsServlet?flag=showlist&type=fz&pageNow=1">服饰</a>
+				<a class="brand" href="GoodsServlet?flag=showlist&type=xb&pageNow=1">鞋包</a> 
+				<a class="brand" href="GoodsServlet?flag=showlist&type=zb&pageNow=1">珠宝手表</a>
+				<a class="brand" href="GoodsServlet?flag=showlist&type=sm&pageNow=1">数码</a> 
+				<a class="brand" href="GoodsServlet?flag=showlist&type=dz&pageNow=1">电子产品</a> 
+				<a class="brand" href="GoodsServlet?flag=showlist&type=ry&pageNow=1">日用百货</a> 
+				<a class="brand" href="GoodsServlet?flag=showlist&type=wh&pageNow=1">文化玩乐</a>
+				<a class="brand" href="GoodsServlet?flag=showlist&type=qc&pageNow=1">汽车用品</a>
+				<a class="brand" href="GoodsServlet?flag=showlist&type=pg&pageNow=1">苹果/配件</a>
 				<!-- Everything you want hidden at 940px or less, place within here -->
 				<div class="nav-collapse collapse"></div>
 			</div>

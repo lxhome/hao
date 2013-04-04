@@ -10,7 +10,7 @@ public class ConnDB {
 	  try {
 		  Class.forName("com.mysql.jdbc.Driver");
 			ct=DriverManager.getConnection("jdbc:mysql://localhost:3306/myshopping","root","520");
-		
+			
 	} catch (Exception e) {
 		// TODO: handle exception
 	}

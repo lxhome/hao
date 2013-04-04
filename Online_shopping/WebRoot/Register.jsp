@@ -2,6 +2,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+/* String fail="";
+fail=request.getParameter("temp"); */
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>注册会员</title>
-    
+    <meta charset="UTF-8" />
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -26,17 +28,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="shortcut icon" href="logo.ico" mce_href="logo.ico">
   <link rel="stylesheet" href="css/register.css" type="text/css"></link>
   <script type="text/javascript" src="js/register.js"></script>
-
   
-  <body onload="createCode();">
+  <body onload="createCode()">
   <div id="container">
   <jsp:include page="Top.jsp"></jsp:include>
   <div id="reg1">
-  <form action="#" method="post" >
+  <form action="UserServlet?flag=zhuce" method="post" >
     <table width="100%" border="0" id="tb">
   <tr>
     <td width="15%"><p><strong>会员名：</strong></p></td>
-    <td width="15%" ><input type="text"  id="username" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
+    <td width="15%" ><input type="text" name="username" id="username" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
     <td width="30%"><span>账号由英文字母、数字(0-9)组成</span></td>
     <td rowspan="6"> 
     <h4><img src="images/read.gif" alt="alt" />阅读本网服务协议 </h4>
@@ -54,24 +55,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td><p><strong>输入密码:</strong></p></td>
-    <td><input type="password" id="pwd" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
+    <td><input type="password" id="pwd" name="pwd" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
     <td><span>字母数字组成，长度为4～16。密码不能与账号名相同。</span></td>
   </tr>
   <tr>
     <td><p><strong>再次输入密码：</strong></p></td>
-    <td><input type="password" id="pwd1" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
-    <td><span></span></td>
+    <td><input type="password" id="pwd1" name="pwd1" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])" onchange="checkPwd()"></td>
+    <td><span id="ht1"></span></td>
     
   </tr>
   <tr>
     <td><p><strong>邮箱：</strong></p></td>
-    <td><input type="text"id="email" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
+    <td><input type="text"id="email" name="email" style="height: 30px"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"></td>
     <td><span></span></td>
     
   </tr>
   <tr>
     <td><p><strong>性别：</strong></p></td>
-    <td><input type="text" id="sex" style="height: 30px;width:50px;"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])">
+    <td> <select id="sex" name="sex" >   
+        <option value="male">男</option>   
+        <option value="female">女</option>         
+      </select>
+    <!-- <input type="text" id="sex" name="sex" style="height: 30px;width:50px;"onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"> -->
     <span></span></td>
     <td>&nbsp;</td>
   
@@ -84,16 +89,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </td>
     <td id="bu1">
     <a href="Register.jsp#bu1" onClick="createCode()">看不清楚,换一张</a>
-
     </td>
-    
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td><input type="submit" value="注册" class="btn btn-primary" style="width:60px" id="su1">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="reset" value="清空" class="btn btn-warning" style="width:60px" id="su1"></td>
-    <td> <input type="button" onclick="validate()" value="ceshi"></td>
+    <td> <!-- <input type="button" onclick="validate()" value="ceshi"> --></td>
     <td>&nbsp;</td>
   </tr>
   <tr>

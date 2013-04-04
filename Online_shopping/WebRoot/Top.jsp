@@ -1,9 +1,11 @@
+<%@page import="com.hao.model.Users"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	Users user=(Users)request.getSession().getAttribute("admin");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -38,10 +40,20 @@
 		<ul id="hao_top1">
 			<li class=""><a href="Cart.jsp" target="_parent">购物车</a>
 			</li>
-			<li class=""><a href="Login.jsp" target="_self">登录</a>
+		          <%
+					  if(user!=null){
+					 %>
+			<li class=""><a href="index.jsp#hao_top1" target="_self">
+			<%=user.getName()%></a>
+			</li>		
+			<%
+					}else{
+					 %>
+			 <li class=""><a href="Login.jsp" target="_self">登录</a>
 			</li>
 			<li class=""><a href="Register.jsp" target="_self">注册</a>
-			</li>			
+			</li> 
+			<%} %>		
 		<!-- <li><script type="text/JavaScript">showTime();</script></li> -->	
 		</ul>
 		

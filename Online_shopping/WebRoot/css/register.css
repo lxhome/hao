@@ -49,3 +49,47 @@ font-weight:bolder;
 #reg1{
 	margin-top: 12px;
 }
+
+
+#info{
+	list-style:none;
+	position:relative;
+	float:left;
+	text-align:center;
+	width:300px;
+	height: 300px;
+	border: 1px solid gray;
+}
+
+#info img{
+	width:300px;
+	height: 300px;
+}
+
+#info2{
+	float:left;
+	list-style:none;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 50px;
+	
+}
+
+#info2 li{
+	line-height:50px;
+	border-bottom:dotted 1px gray; 
+}
+
+#suc{
+	text-align: center;
+	color: #FF9900;
+	 border: 1px solid #FFFDDE;
+     width: 690px;
+     height:440px;
+     margin: 0  auto;     
+     background-image: url(../images/denglu.png); 
+}
+
+#sex{
+width: 55px;	
+}

@@ -18,6 +18,7 @@ if(code.length != codeLength){
    createCode();
 }
 checkCode.value = code;
+
 }
 
 function validate () {
@@ -48,3 +49,17 @@ function changebg(){
 function delbg() {
 	arguments[0].currentTarget.style.background="none";
 }
+
+
+function checkPwd(){
+     var pwd=document.getElementById("pwd");
+     var pwd1=document.getElementById("pwd1");
+	if(pwd1.value!=null){
+		if(pwd.value!=pwd1.value){
+			document.getElementById("ht1").innerHTML="两次输入密码不同";
+		document.getElementById("ht1").style.color="red";
+		}else
+			document.getElementById("ht1").innerHTML="";
+	}
+}
+

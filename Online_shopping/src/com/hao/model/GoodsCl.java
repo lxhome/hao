@@ -29,7 +29,7 @@ public class GoodsCl {
 	    	gs.setG_images(rs.getString(7));
 	    	gs.setSpecificClass(rs.getString(8));
 	    	al.add(gs);
-	    /*	System.out.println(rs.getFloat(3));*/
+	/* System.out.println(rs.getFloat(3));*/
 	    }
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -41,7 +41,31 @@ public class GoodsCl {
     return al;
     }
     
-	
+    //获得特定的某个商品
+	public Goods get_aGoods(int id){
+		Goods gs=new Goods();
+		ct=new ConnDB().getConn();
+		try {
+			ps=ct.prepareStatement("select * from GOODS where GOODSID="+id);
+			rs=ps.executeQuery();
+			while(rs.next()){
+		    	gs.setGoodsId(rs.getInt(1));
+		    	gs.setG_name(rs.getString(2));
+		    	gs.setG_price(rs.getFloat(3));
+		    	gs.setG_infor(rs.getString(4));
+		    	gs.setG_amount(rs.getInt(5));
+		    	gs.setG_type(rs.getString(6));
+		    	gs.setG_images(rs.getString(7));
+		    	gs.setSpecificClass(rs.getString(8));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			this.close();
+		}
+		
+		return gs;
+	}
 	
 	public void close(){
 		try {

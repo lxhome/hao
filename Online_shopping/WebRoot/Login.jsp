@@ -33,16 +33,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div id="login1">
 	
-			<form action="#" method="post">
+			<form action="UserServlet?flag=denglu" method="post">
 				<table border="0px" id="login_1">			
 					<tr>
 						<td><strong>会员名:</strong></td>
-						<td><input type="text" name="name" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])">
+						<td><input type="text" name="username" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])">
 						</td>
 					</tr>
 					<tr>
 						<td><strong>密码:</strong></td>
-						<td><input type="password" name="password" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])">
+						<td><input type="password" name="pwd" style="height: 30px" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])">
 						</td>
 					</tr>
 					<tr>

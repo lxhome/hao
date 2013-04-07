@@ -13,7 +13,7 @@ Goods gs=(Goods)request.getAttribute("goodsinfo");
 <base href="<%=basePath%>">
 
 <title>商品详情</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -35,7 +35,7 @@ Goods gs=(Goods)request.getAttribute("goodsinfo");
 			<h4 style="border-bottom:1px gray solid; text-align: center;"><%=gs.getG_name()%></h4>
 		</ul>
 		<ul id="info">
-			<li><img src="img/<%=gs.getG_images()%>">
+			<li><a ><img src="img/<%=gs.getG_images()%>"></a>
 			</li>
 		</ul>
 		<ul id="info2">
@@ -45,7 +45,7 @@ Goods gs=(Goods)request.getAttribute("goodsinfo");
 			%>
 			<li>一口价：￥<%=f1%></li>
 			<li>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：免运费</li>
-			<li><a href="goodsinfo.jsp#info2"><img
+			<li><a href="OrderServlet?flag=orderflash&id=<%= gs.getGoodsId() %>"><img
 					src="images/buynow.gif"></img>
 			</a>
 			</li>

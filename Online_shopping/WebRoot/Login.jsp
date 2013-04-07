@@ -2,6 +2,10 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String str=(String)request.getAttribute("checkid");
+String checkid="0";
+if(str!=null)
+    checkid=str;
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -33,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div id="login1">
 	
-			<form action="UserServlet?flag=denglu" method="post">
+			<form action="UserServlet?flag=denglu&checkid=<%=checkid %>" method="post">
 				<table border="0px" id="login_1">			
 					<tr>
 						<td><strong>会员名:</strong></td>

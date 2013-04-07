@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hao.model.Goods;
 import com.hao.model.GoodsCl;
+import com.hao.model.OrdersCl;
 
 
 public class GoodsServlet extends HttpServlet {
@@ -37,14 +38,17 @@ public class GoodsServlet extends HttpServlet {
 		
 		String type=request.getParameter("type");
 		String flag=request.getParameter("flag");
-		System.out.println(12);
-		if(type.equals("showinfo")){
+		//System.out.println(12);、
+		//显示某个商品的具体信息
+		if(flag.equals("showinfo")){
 			GoodsCl gc=new GoodsCl();
 			Goods gs=gc.get_aGoods(id);
 			request.setAttribute("goodsinfo",gs);
 			request.getRequestDispatcher("goodsinfo.jsp").forward(request, response);
 		}
-		if (flag.equals("showlist")) {
+		//显示某种类的所有商品
+		else if (flag.equals("showlist")) {
+			//pageNow  type
 			GoodsCl gc=new GoodsCl();
 			//GoodsServlet?flag=showlist&type=dz&pageNow=1
 			int pageNow = Integer.parseInt(request.getParameter("pageNow"));
@@ -56,15 +60,12 @@ public class GoodsServlet extends HttpServlet {
 			//System.out.println("浩"+pageNow+"qwe"+type);
 			ArrayList<Goods> al = gc.getGoodsByPage(pageNow,type);	
 			//int []b = {pageCount,pageNow};
-			
-			
-			request.setAttribute("pageCount",pageCount+"");//总页数
-			request.setAttribute("pageNow",pageNow+"");//
+		    request.setAttribute("pageCount",pageCount+"");//总页数
+		  	request.setAttribute("pageNow",pageNow+"");//
 			request.setAttribute("result",al);		
 			request.getRequestDispatcher("goodslist.jsp").forward(request, response);
 			
  		}
-	
 	}
 
 	/**

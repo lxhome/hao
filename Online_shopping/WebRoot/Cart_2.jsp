@@ -1,9 +1,13 @@
+<%@page import="com.hao.model.*" %>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	ArrayList al=(ArrayList)request.getAttribute("order");
+	Users user=(Users)request.getSession().getAttribute("admin");
+	
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -12,7 +16,7 @@
 <base href="<%=basePath%>">
 
 <title>订单确认</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -28,7 +32,7 @@
 <link rel="stylesheet" href="css/layout.css" type="text/css"></link>
 <link rel="stylesheet" type="text/css" href="css/register.css">
 <script type="text/javascript" src="js/register.js"></script>
-</head>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css"></link></head>
 
 <body>
 	<div id="container">
@@ -40,7 +44,7 @@
 
 		<div id="buy">
 			<h4>
-				<img src="images/mycart.gif" alt="alt" /> <a href="Cart_2.jsp#buy">本商场默认为货到付款方式</a>
+				<img src="images/mycart.gif" alt="alt" /> <a href="#">本商场默认为货到付款方式</a>
 			</h4>
 			<table cellpadding="0" cellspacing="0" >
 				<tbody>
@@ -52,40 +56,44 @@
 						<td>价格</td>										
 						<td>数量</td>					
 					</tr>
+					<%
+					if(al.size()>0){
+					for(int i=0;i<al.size();i++){
+						 Flash fa=(Flash)al.get(i);
+					%>
 					<tr>
-						<td>攀高搓捶背靠垫按摩器（蓝色
+						<td><%=fa.getName() %>
 								
 						</td>
-						<td><span>￥258.00</span>
+						<td><span>￥<%=fa.getPrice() %></span>
 						</td>
-						<td>1件</td>
+						<td><%=fa.getAmount() %></td>
 						<td>
 						</td>
 					</tr>
+					<%
+					}
+					}else{
+					%>
 					<tr>
-						<td>郝彬美国口语-美国口语成功训练系统（MP3）
+						<td>无商品
 						</td>
-						<td><span>￥480.00</span>
+						<td><span>￥0.00</span>
 						</td>	
-						<td>1件
+						<td>0件
 						</td>				
 					</tr>
-					<tr>
-						<td>简.奥斯汀全集（DVD-9）（赠BBC产品目录
-						</td>
-						<td><span>￥138.00</span>
-						</td>
-						<td>1件	</td>					
-					</tr>
-					<tr>
-						
-						<td colspan="2" style="padding-left: 270px;"><h4>商品价值总共:RMB527.40</h4></td>					
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">返回上一步</a>
-						</td>
+					<%} 
+					 OrdersCl oc=new OrdersCl();
+					%>
+					<tr>			
+						<td colspan="2" style="padding-left: 270px;"><h4>商品价值总共:<%=oc.getPrice(user.getName())%>元</h4></td>					
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;<%--<a href="#">返回上一步</a>
+						--%></td>
 					</tr>
 				</tbody>
 			</table>
-			<form method="post" action="">
+			<form method="post" action="CartServlet?flag=tableins">
 				<table id="tr3" >
 					<tbody>
 						<tr id="tr2">
@@ -95,24 +103,25 @@
 							<td id="tr4"><label for="username"><h4>收件人：</h4></label>
 							</td >
 							<td id="tr6" width="30%"><input type="text" name="username" id="username" />
-							<td align="left"><h4 style="color: red"><input type="checkbox">网银支付</h4></td>
+							<td align="left"><%--<h4 style="color: red"><input type="checkbox">网银支付</h4></td>--%>
 						</tr>
 						<tr>
 							<td id="tr4"><label for="address"><h4>地址：</h4> </label>
 							</td>
 							<td id="tr6"><input type="text" name="address" id="address" /></td>
-						    <td align="left"><h4 style="color: red"><input type="checkbox">货到付款支付</h4></td>
+						    <td align="left"><%--<h4 style="color: red"><input type="checkbox">货到付款支付</h4></td>--%>
 						</tr>
 						<tr>
 							<td id="tr4"><label for="tel"><h4>手机号码：</h4></label>
 							</td>
-							<td id="tr6"><input type="text" name="code" size="4" id="tel" />
+							<td id="tr6"><input type="text" name="phone" id="phone" size="4" id="tel" />
 							</td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
-							<td><input type="image" src="images/submit.gif" />
+							<td><input type="submit" 
+							value="提交" name="tijiao" class="btn btn-primary" style="width:60px">
 							</td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>

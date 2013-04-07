@@ -60,7 +60,7 @@ type=gc.change2(type);
    for(int i=0;i<al.size();i++) {
    Goods gs=(Goods)al.get(i);
    %>
-   <div id="gl4" ><a href="GoodsServlet?type=showinfo&id=<%=gs.getGoodsId() %>"><img src="img/<%= gs.getG_images()%>"></img></a> </div>
+   <div id="gl4" ><a href="GoodsServlet?flag=showinfo&id=<%=gs.getGoodsId() %>"><img src="img/<%= gs.getG_images()%>"></img></a> </div>
    <div id="gl5" ><table width="550" border="0">
 					<tr>
 						<th width="500" height="150" align="left" >

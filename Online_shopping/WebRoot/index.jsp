@@ -314,7 +314,7 @@
 				%>
 				<div id="sj1">
 					<a
-						href="GoodsServlet?type=showinfo&id=<%=al.get(i).getGoodsId()%>"><img
+						href="GoodsServlet?flag=showinfo&id=<%=al.get(i).getGoodsId()%>"><img
 						src="img/<%=al.get(i).getG_images()%>"></img> <span><%=al.get(i).getG_name()%>
 				<br> <%
  	    

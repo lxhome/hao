@@ -181,3 +181,7 @@ body p {
 	position: relative;
 	margin-top: 30px;
 }
+
+#cart_sel{
+	width:100px;
+}

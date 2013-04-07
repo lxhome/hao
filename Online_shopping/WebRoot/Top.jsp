@@ -27,25 +27,25 @@
 
 <link rel="stylesheet" href="css/gobal.css" type="text/css"></link>
 <script type="text/javascript" src="js/my_js.js"></script>
-<!--<link rel="icon" href="logo.ico" mce_href="logo.ico" type="image/x-icon">
-<link rel="shortcut icon" href="logo.ico" mce_href="logo.ico" type="image/x-icon">
-  <link rel="bookmark"  type="image/x-icon"  href="图片地址"/>
-<link rel="shortcut icon" href="图片地址"> 
-<link rel="icon" href="图片地址">-->
+
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css"></link></head>
 <body>
 	<div id="top" class="hao_top">
 		<img src="images/1.png" id="top_img"></img>
 		<div style="margin-top: 6px;"><span id="hao_time">加载当前时间……</span> </div>
 		<ul id="hao_top1">
-			<li class=""><a href="Cart.jsp" target="_parent">购物车</a>
+			<li class=""><a href="OrderServlet?flag=orderflash" target="_parent">购物车</a>
 			</li>
 		          <%
 					  if(user!=null){
 					 %>
 			<li class=""><a href="index.jsp#hao_top1" target="_self">
 			<%=user.getName()%></a>
-			</li>		
+			</li>	
+			<li>
+			<a href="UserServlet?flag=zhuxiao" target="_self">
+			注销
+			</li>	
 			<%
 					}else{
 					 %>

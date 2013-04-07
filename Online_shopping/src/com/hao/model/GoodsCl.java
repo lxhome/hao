@@ -237,6 +237,26 @@ System.out.println("pageCount"+pageCount);*/
 			e.printStackTrace();
 		}
 	}
+	
+	//返回某个商品的数量
+	public int getN(int id){
+		int n=0;
+		try {
+			ct=new ConnDB().getConn();
+			String sql ="select g_amount from myshopping.goods where goodsid="+id;
+			ps=ct.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				n=rs.getInt(1);
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			this.close();
+		}
+		return n;
+	}
 
 	public void close() {
 		try {

@@ -38,6 +38,7 @@ public class UserServlet extends HttpServlet {
 		String u = request.getParameter("username");
 		String p = request.getParameter("pwd");
 		
+
 		//注册
 		if (flag.equals("zhuce")) {
 			UsersCl uc = new UsersCl();			
@@ -84,17 +85,32 @@ public class UserServlet extends HttpServlet {
 
 		}		
 		else if(flag.equals("denglu")){
+			String checkid = request.getParameter("checkid");
+			int id=0;
+			if(checkid!=null)
+			id=Integer.parseInt(checkid);
+			
+			
 			UsersCl uc =new UsersCl();
 			if(uc.checkLogin(u, p)){
 				Users us=uc.getUsers(u);
+				 if(id!=0){
+				request.getSession().setAttribute("admin", us);
+				request.getRequestDispatcher("index.jsp").forward(request, response);				
+				}else{
 				String str="您已登录成功";
 				request.setAttribute("temp", str);
 				request.getSession().setAttribute("admin", us);
-				request.getRequestDispatcher("success.jsp").forward(request, response);
-			}else {
+     			request.getRequestDispatcher("success.jsp").forward(request, response);
+				}			
+				}else {
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 			}
 				
+		}
+		else if(flag.equals("zhuxiao")){
+			request.getSession().setAttribute("admin", null);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 

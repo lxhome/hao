@@ -1,9 +1,15 @@
+<%@page import="com.hao.model.Users"%>
+<%@page import="com.hao.model.OrdersCl"%>
+<%@page import="com.hao.model.GoodsCl"%>
+<%@page import="com.hao.model.Flash"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	ArrayList al=(ArrayList)request.getAttribute("flash");
+	Users user=(Users)request.getSession().getAttribute("admin");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,13 +40,9 @@
 	<div id="container">
 		<jsp:include page="Top.jsp"></jsp:include>
 
-
-
-
-
 		<div id="buy">
 			<h4>
-				<img src="images/mycart.gif" alt="alt" /> <a href="Cart.jsp#buy">全场运费一律免费</a>
+				<img src="images/mycart.gif" alt="alt" /> <a href="#">全场运费一律免费</a>
 			</h4>
 			<table cellpadding="0" cellspacing="0" >
 				<tbody>
@@ -49,68 +51,75 @@
 					</tr>
 					<tr style="border-bottom: 1px dotted gray;" id="tr5">
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;商品名</td>
-						<td>原价</td>
-						<td>优惠价</td>
-						<td>打折</td>
+						<td>价格</td>
 						<td>数量</td>
-						<td>删除</td>
+						<td>操作</td>
 					</tr>
+					<%
+					try{
+					if(al.size()>0){
+						//System.out.println(al.size()+"qwe");
+						for(int i=0;i<al.size();i++){
+							 Flash fa=(Flash)al.get(i);
+						%>
 					<tr>
-						<td><a href="#" title="攀高搓捶背靠垫按摩器（蓝色 ）（定制）">&nbsp;&nbsp;&nbsp;&nbsp;攀高搓捶背靠垫按摩器（蓝色
-								）（定制）</a>
+						<td><a href="GoodsServlet?flag=showinfo&id=<%=fa.getId() %>"  title="<%=fa.getName()%>">&nbsp;&nbsp;&nbsp;&nbsp;<%=fa.getName()%></a>
 						</td>
-						<td><span>￥258.00</span>
+						<td><span>￥<%=fa.getPrice() %></span>
 						</td>
-						<td><span>￥258.00</span>
+						<td ><select id="cart_sel" name="cart_sel" onchange="changeNum(<%=fa.getId() %>)">
+						<%
+					
+						GoodsCl gc=new GoodsCl();
+						int n=gc.getN(fa.getId());
+						for(int j=1;j<=n;j++){ 
+						if(j==fa.getAmount()){						
+						%>
+						<option selected="selected" value="<%=j%>"><%=j %></option><%
+						}
+						else{
+							
+						%>
+						<option value="<%=j%>"><%=j %></option>
+						<% 
+						}
+						}%>
+						</select>
 						</td>
-						<td><span>50折</span>
+						<td><a href="CartServlet?flag=del&id=<%= fa.getId()%>">删除</a>
+						</td>
+					</tr>
+					<%}
+					}else{
+						%>
+					<tr>
+						<td><a href="#" title="无商品">&nbsp;&nbsp;&nbsp;&nbsp;无商品</a>
+						</td>
+						<td>				
+						<span>0.00</span>
 						</td>
 						<td><input onchange="priceCalc()" type="text" value="1"
 							maxlength="4" size="3" style="width: 70px;height: 30px" />
 						</td>
-						<td><a href="#" onclick="remove(this)">删除</a>
+						<td><a >删除</a>
 						</td>
 					</tr>
+					<%}
+					}catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					%>
 					<tr>
-						<td><a href="info.htm" title="郝彬美国口语-美国口语成功训练系统（MP3）">&nbsp;&nbsp;&nbsp;&nbsp;郝彬美国口语-美国口语成功训练系统（MP3）</a>
-						</td>
-						<td><span>￥480.00</span>
-						</td>
-						<td><span>￥292.90</span>
-						</td>
-						<td><span>60折</span>
-						</td>
-						<td><input onchange="priceCalc()" type="text" value="1"
-							maxlength="4" size="3" style="width: 70px;height: 30px" />
-						</td>
-						<td><a href="JavaScript:void(0)" onclick="remove(this)">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td><a href="#" title="简.奥斯汀全集（DVD-9）（赠BBC产品目录...">&nbsp;&nbsp;&nbsp;&nbsp;简.奥斯汀全集（DVD-9）（赠BBC产品目录...</a>
-						</td>
-						<td><span>￥138.00</span>
-						</td>
-						<td><span>￥103.90</span>
-						</td>
-						<td><span>80折</span>
-						</td>
-						<td><input onchange="priceCalc()" name="count" type="text"
-							value="1" maxlength="4" size="3" style="width: 70px;height: 30px" />
-						</td>
-						<td><a href="JavaScript:void(0)" onclick="remove(this)">删除</a>
-						</td>
-					</tr>
-					<tr>
+								<%OrdersCl oc=new OrdersCl(); %>
+						<td colspan="2" style="padding-left: 270px;"><h4>商品价值总共:<%=oc.getPrice(user.getName()) %>元</h4></td>
 						
-						<td colspan="2" style="padding-left: 270px;"><h4>商品价值总共:RMB527.40</h4></td>
-						<td colspan="3">你共节省：￥348.60</td>
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">继续挑选商品</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<a href="#" style="margin-left:80%;"><img src="images/cart.png" title="立即结算"></img></a>
+			<a href="CartServlet?flag=pay" style="margin-left:80%;"><img src="images/cart.png" title="立即结算"></img></a>
 
 
 <div id="cart_foot">

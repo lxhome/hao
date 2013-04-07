@@ -63,3 +63,8 @@ function checkPwd(){
 	}
 }
 
+function changeNum(x){
+	//alert("x="+x);
+	var code=document.getElementById("cart_sel").value;
+	location.href="CartServlet?ttt="+code+"&flag=upd&id="+x;
+}

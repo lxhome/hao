@@ -31,7 +31,11 @@ String str =(String)request.getAttribute("temp");
   <div id="container">
   <jsp:include page="Top.jsp"></jsp:include>
 <div id="suc">
+<%if(temp!=null){ %>
 <h1><%=str %></h1>
+<%} else{%>
+  <h1>您已网上支付成功</h1>
+<%} %>
 </div>
 
 

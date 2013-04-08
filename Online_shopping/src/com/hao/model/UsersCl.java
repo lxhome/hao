@@ -17,7 +17,7 @@ public class UsersCl {
     	 String sql="insert into myshopping.users(name,password,email,sex)values('"+name+
     			 "','"+password+"','"+email+"','"+sex+"')";
     	 //insert into myshopping.users(name,password,email,sex) values("","","","");
-    	 System.out.println(sql);
+    	// System.out.println(sql);
     	 try {
 			ps=ct.prepareStatement(sql);
 			int a=ps.executeUpdate();

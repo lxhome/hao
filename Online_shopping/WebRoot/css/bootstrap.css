@@ -2878,7 +2878,8 @@ table th[class*="span"],
 }
 
 .dropdown-toggle {
-  *margin-bottom: -3px;
+/*   *margin-bottom: -3px; */
+  height: 20px;
 }
 
 .dropdown-toggle:active,

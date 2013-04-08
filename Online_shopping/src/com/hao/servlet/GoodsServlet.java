@@ -56,7 +56,11 @@ public class GoodsServlet extends HttpServlet {
 			//System.out.println(pageNow+"page");
 			// 调用UserBean
 			int pageCount = gc.getPageCount(type);
-			//System.out.println(pageCount+"1234");
+			//System.out.println(pageCount+"=pageCount");
+			if(pageNow==0){
+				String str="暂无此类商品";
+				request.setAttribute("jingao",str);
+			}
 			//System.out.println("浩"+pageNow+"qwe"+type);
 			ArrayList<Goods> al = gc.getGoodsByPage(pageNow,type);	
 			//int []b = {pageCount,pageNow};

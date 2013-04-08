@@ -185,3 +185,31 @@ body p {
 #cart_sel{
 	width:100px;
 }
+
+#man{
+	float:left;
+	width:200px;
+    height:400px;
+   background-color: #EFFDFA;
+}
+
+#man li{
+	list-style: none;
+}
+
+#man2{
+	/* background-color:yellow; */
+	width:780px;
+    height:400px;
+    background:url(../images/denglu.png);
+    margin-left:205px;
+   display: none;
+}
+#man3{
+	/* background-color:yellow; */
+	background:url(../images/denglu.png);
+	width:780px;
+/*     height:400px; */
+    margin-left:205px;
+    display: block;
+}

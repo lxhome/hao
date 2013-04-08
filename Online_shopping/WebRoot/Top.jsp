@@ -36,10 +36,13 @@
 		<ul id="hao_top1">
 			<li class=""><a href="OrderServlet?flag=orderflash" target="_parent">购物车</a>
 			</li>
-		          <%
+			
+			
+
+	          <%
 					  if(user!=null){
 					 %>
-			<li class=""><a href="index.jsp#hao_top1" target="_self">
+			<li class=""><a href="UserServlet?flag=manage" target="_self">
 			<%=user.getName()%></a>
 			</li>	
 			<li>
@@ -56,6 +59,10 @@
 			<%} %>		
 		<!-- <li><script type="text/JavaScript">showTime();</script></li> -->	
 		</ul>
+		
+
+		
+		
 		
 	</div>
 	

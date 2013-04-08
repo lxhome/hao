@@ -102,6 +102,28 @@ public class UsersCl {
     	 return users;
      }
      
+     //修改密码
+     public boolean updateCode(String u,String p){
+    		boolean b=false;
+    		try {
+    			ct=new ConnDB().getConn();
+    			String sql="update myshopping.users set password ='"+p+"' where name='"+u+"';";
+    			//insert into myshopping.flash(id,name,price) values(1,'qwe',1);  			
+    			ps=ct.prepareStatement(sql);
+    			int a=ps.executeUpdate();
+    			System.out.println("a="+a);
+    			if(a>0){
+    				b=true;
+    			}
+    		} catch (Exception e) {
+    			// TODO: handle exception
+    		}finally{
+    			this.close();
+    		}
+    		System.out.println("b="+b);
+    		return b;
+     }
+     
      public void close(){
     	 try {
     	 if(ct!=null){   		 

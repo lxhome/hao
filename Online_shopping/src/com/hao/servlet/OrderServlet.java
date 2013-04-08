@@ -51,15 +51,15 @@ public class OrderServlet extends HttpServlet {
 			GoodsCl gc = new GoodsCl();
 			ArrayList<Flash> al = new ArrayList<Flash>();
 			if (id != 0) {
+				if(oc.checkId(id)){
 				Goods gs = gc.get_aGoods(id);
 				if (oc.setFlash(gs,user.getName())) {
 					//System.out.println(id+"==id2");										
 				}
+				}
 			}
-			//System.out.println("qwe2"+user.getName()+"al"+al.size());
-			//System.out.println("qwe"+oc.getFlash(user.getName()).size());
-			al =oc.getFlash(user.getName());
-			//System.out.println(al.size()+"==id3");	
+	    	al =oc.getFlash(user.getName());
+
 			request.setAttribute("flash", al);
 			request.getRequestDispatcher("Cart.jsp").forward(request,
 					response);

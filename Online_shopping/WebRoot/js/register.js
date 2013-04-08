@@ -40,7 +40,6 @@ else {
 }
 }
 
-
 function changebg(){
 	//alert(arguments[0].currentTarget);
 	arguments[0].currentTarget.style.background="yellow";
@@ -63,8 +62,26 @@ function checkPwd(){
 	}
 }
 
-function changeNum(x){
+function changeNum(){
 	//alert("x="+x);
-	var code=document.getElementById("cart_sel").value;
+	/*alert(arguments[0].currentTarget.value);
+	=document.getElementById("cart_sel").value;*/
+	var x=arguments[1];
+	var code=arguments[0].currentTarget.value;
+	//alert("x="+x+"code="+code);
 	location.href="CartServlet?ttt="+code+"&flag=upd&id="+x;
+}
+
+
+function update(){
+	var x=arguments[0];
+	/*alert("x="+x);*/
+	if(x==1){
+		document.getElementById("man2").style.display="block";
+		document.getElementById("man3").style.display="none";
+	}else if(x==2){
+		document.getElementById("man2").style.display="none";
+		document.getElementById("man3").style.display="block";
+		location.href="CartServlet?flag=getMes";
+	}	
 }

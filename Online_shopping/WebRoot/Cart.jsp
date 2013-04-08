@@ -67,11 +67,15 @@
 						</td>
 						<td><span>￥<%=fa.getPrice() %></span>
 						</td>
-						<td ><select id="cart_sel" name="cart_sel" onchange="changeNum(<%=fa.getId() %>)">
-						<%
-					
+						<td >
+						<% 
 						GoodsCl gc=new GoodsCl();
 						int n=gc.getN(fa.getId());
+						%>
+						<select id="cart_sel" name="cart_sel" onchange="changeNum(arguments[0],<%=fa.getId() %>)">
+						<%
+					
+						
 						for(int j=1;j<=n;j++){ 
 						if(j==fa.getAmount()){						
 						%>

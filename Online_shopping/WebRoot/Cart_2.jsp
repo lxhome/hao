@@ -102,19 +102,19 @@
 						<tr>
 							<td id="tr4"><label for="username"><h4>收件人：</h4></label>
 							</td >
-							<td id="tr6" width="30%"><input type="text" name="username" id="username" />
+							<td id="tr6" width="30%"><input type="text" name="username" id="username" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"/>
 							<td align="left"><%--<h4 style="color: red"><input type="checkbox">网银支付</h4></td>--%>
 						</tr>
 						<tr>
 							<td id="tr4"><label for="address"><h4>地址：</h4> </label>
 							</td>
-							<td id="tr6"><input type="text" name="address" id="address" /></td>
+							<td id="tr6"><input type="text" name="address" id="address" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"/></td>
 						    <td align="left"><%--<h4 style="color: red"><input type="checkbox">货到付款支付</h4></td>--%>
 						</tr>
 						<tr>
 							<td id="tr4"><label for="tel"><h4>手机号码：</h4></label>
 							</td>
-							<td id="tr6"><input type="text" name="phone" id="phone" size="4" id="tel" />
+							<td id="tr6"><input type="text" name="phone" id="phone" size="4" id="tel" onfocus="changebg(arguments[0])" onblur="delbg(arguments[0])"/>
 							</td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>

@@ -34,14 +34,14 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 
-		String flag = request.getParameter("flag");
+		String flag = (String )request.getParameter("flag");
 		String u = request.getParameter("username");
 		String p = request.getParameter("pwd");
 		
-
+		UsersCl uc = new UsersCl();	
 		//注册
-		if (flag.equals("zhuce")) {
-			UsersCl uc = new UsersCl();			
+		//System.out.println(flag);
+		if (flag.equals("zhuce")) {				
 			String p2 = request.getParameter("pwd1");
 			String email = request.getParameter("email");
 			String sex = (String)request.getParameter("sex");
@@ -91,7 +91,7 @@ public class UserServlet extends HttpServlet {
 			id=Integer.parseInt(checkid);
 			
 			
-			UsersCl uc =new UsersCl();
+		
 			if(uc.checkLogin(u, p)){
 				Users us=uc.getUsers(u);
 				 if(id!=0){
@@ -111,6 +111,23 @@ public class UserServlet extends HttpServlet {
 		else if(flag.equals("zhuxiao")){
 			request.getSession().setAttribute("admin", null);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else if (flag.equals("manage")) {
+			request.getRequestDispatcher("Manage.jsp").forward(request, response);
+		}else if (flag.equals("updateCode")) {
+			String p2 = request.getParameter("pwd2");
+			String p3 = request.getParameter("pwd3");
+			Users users = (Users) request.getSession().getAttribute("admin");
+			String username=(String)users.getName();
+		    if(uc.checkLogin(username, p)){
+		    	if(p2.equals(p3)){
+		    		if(uc.updateCode(username,p3)){
+		    			String str="密码修改成功";
+		    			//System.out.println(str);
+						request.setAttribute("temp", str);
+		    			request.getRequestDispatcher("Manage.jsp").forward(request, response);
+		    		}
+		    	}
+		    }
 		}
 	}
 

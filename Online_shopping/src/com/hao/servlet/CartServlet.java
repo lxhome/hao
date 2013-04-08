@@ -3,6 +3,7 @@ package com.hao.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,6 +16,7 @@ import com.hao.model.Flash;
 import com.hao.model.Goods;
 import com.hao.model.GoodsCl;
 import com.hao.model.OrdersCl;
+import com.hao.model.Records;
 import com.hao.model.Users;
 
 public class CartServlet extends HttpServlet {
@@ -47,30 +49,37 @@ public class CartServlet extends HttpServlet {
 		Users users = (Users) request.getSession().getAttribute("admin");
 		String ttt = (String) request.getParameter("ttt");
 		// System.out.println(ttt);
-		String username = users.getName();
+		String username = users.getName();// 登陆的用户
 
 		String name = (String) request.getParameter("username");
 		String address = (String) request.getParameter("address");
 		String phone = (String) request.getParameter("phone");
-
+		OrdersCl oc = new OrdersCl();
 		if (flag.equals("del")) {
-			OrdersCl oc = new OrdersCl();
 			// String str = users.getName();
 			if (oc.delOr(id, username))
 				;
-			request.getRequestDispatcher("Cart.jsp").forward(request, response);
+		
+			ArrayList<Flash> al = new ArrayList<Flash>();
+			al = oc.getFlash(username);
+			request.setAttribute("flash", al);
+			request.getRequestDispatcher("Cart.jsp").forward(request,
+					response);
+			
 		} else if (flag.equals("upd")) {
 			// System.out.println(ttt+"id="+id);
 			if (ttt != null) {
 				int n = Integer.parseInt(ttt);
-				OrdersCl oc = new OrdersCl();
-				if (oc.updOr(id, username, n))
+				if (oc.updOr(id, username, n)) {				
+					ArrayList<Flash> al = new ArrayList<Flash>();
+					al = oc.getFlash(username);
+					request.setAttribute("flash", al);
 					request.getRequestDispatcher("Cart.jsp").forward(request,
 							response);
+				}
 			}
 
 		} else if (flag.equals("pay")) {
-			OrdersCl oc = new OrdersCl();
 			ArrayList<Flash> al = new ArrayList<Flash>();
 			al = oc.getFlash(users.getName());
 			request.setAttribute("order", al);
@@ -81,14 +90,21 @@ public class CartServlet extends HttpServlet {
 			// System.out.println(flag+" e"+(name.equals(""))+" q"+(address.equals(null))+" w"+(phone==null));
 			if (!name.equals("") && !address.equals("") && !phone.equals("")) {
 				/* System.out.println("1235"); */
-				OrdersCl oc = new OrdersCl();
-				int temp = 0;
-				HashMap<Integer,Integer> hMap=oc.getMap(username);
-				
-				if (oc.setOrders(name, address, phone, username)){
-					temp = oc.getid();
-					
-					oc.delFlash(username);
+
+				HashMap<Integer, Integer> hMap = (HashMap<Integer, Integer>) oc
+						.getMap(username);
+				if (oc.setOrders(name, address, phone, username)) {// 数据存入roders表中
+
+					int temp = oc.getid();// 获取最近存入数据库的订单o_id
+					// System.out.println(temp+"temp");
+					// System.out.println(hMap.size()+"temp");
+					if (oc.setShop(temp, hMap))
+						if (oc.delFlash(username)) {
+							String str = "你的订单已提交，我们将立即发货";
+							request.setAttribute("temp", str);
+							request.getRequestDispatcher("success.jsp")
+									.forward(request, response);
+						}
 				}
 
 			}
@@ -96,13 +112,22 @@ public class CartServlet extends HttpServlet {
 			/* System.out.println("1235");} */
 			else {
 				/* System.out.println("123"); */
-				OrdersCl oc = new OrdersCl();
 				ArrayList<Flash> al = new ArrayList<Flash>();
 				al = oc.getFlash(users.getName());
 				request.setAttribute("order", al);
 				// request.getRequestDispatcher("Cart_2.jsp").forward(request,response);
 			}
 
+		} else if (flag.equals("getMes")) {
+			ArrayList<Records> al = new ArrayList<Records>();
+			al = oc.setRecord(username);
+			// System.out.println("username="+username);
+			request.setAttribute("result", al);
+			//System.out.println("al.size=" + al.size());
+			String str = "jilu";
+			request.setAttribute("all", str);
+			request.getRequestDispatcher("Manage.jsp").forward(request,
+					response);
 		}
 	}
 

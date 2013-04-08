@@ -49,40 +49,31 @@
 				<ul id="ad12" style="margin: 0px;">
 					<li><a href="GoodsServlet?flag=showlist&type=fz&pageNow=1"><h4>服装</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=xb&pageNow=1"><h4>鞋包</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=zb&pageNow=1"><h4>珠宝手表</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=sm&pageNow=1"><h4>数码</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=dz&pageNow=1"><h4>电子产品</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=ry&pageNow=1"><h4>日用百货</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=wh&pageNow=1"><h4>文化玩乐</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=qz&pageNow=1"><h4>汽车用品</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 					<li><a href="GoodsServlet?flag=showlist&type=pg&pageNow=1"><h4>苹果/配件</h4>
 					</a>
-					<hr>
-					</li>
+						<hr></li>
 				</ul>
 
 			</div>
@@ -92,10 +83,10 @@
 			<div id="hao_ad2">
 
 				<div>
-					<img src="images/ad01.jpg" alt="母婴重磅减轻" id="hao_div1" /> <img
-						src="images/ad02.jpg" alt="空气净化" id="hao_div2" /> <img
-						src="images/ad03.jpg" alt="卡西欧" id="hao_div3" /> <img
-						src="images/ad04.jpg" alt="夏季新品" id="hao_div4" />
+				<a href="GoodsServlet?flag=showlist&type=ry&pageNow=1">	<img src="images/ad01.jpg" alt="母婴重磅减轻" id="hao_div1" /></a> 
+			<a href="GoodsServlet?flag=showlist&type=dz&pageNow=1">	<img src="images/ad02.jpg" alt="空气净化" id="hao_div2" /> </a>
+			 <a href="GoodsServlet?flag=showlist&type=pg&pageNow=1">     <img src="images/ad03.jpg" alt="卡西欧" id="hao_div3" /> </a>
+			<a href="GoodsServlet?flag=showlist&type=xb&pageNow=1"> <img src="images/ad04.jpg" alt="夏季新品" id="hao_div4" /></a>
 				</div>
 				<div id="hao_adv">
 					<a href="JavaScript:show(1);" id="hao_a1">1</a> &nbsp;<a
@@ -109,135 +100,88 @@
 			<div id="hao_ad3">
 				<ul id="hao_ad31">
 					<li id="hao_gg1"><a href="#"
-						onmouseover="JavaScript:showgg(1);">公告</a>
-					</li>
+						onmouseover="JavaScript:showgg(1);">公告</a></li>
 					<li id="hao_gg2"><a href="#"
-						onmouseover="JavaScript:showgg(2);">规则</a></li>
+						onmouseover="JavaScript:showgg(2);">规则</a>
+					</li>
 					<li id="hao_gg3"><a href="#"
-						onmouseover="JavaScript:showgg(3);">论坛</a></li>
+						onmouseover="JavaScript:showgg(3);">论坛</a>
+					</li>
 					<li id="hao_gg4"><a href="#"
-						onmouseover="JavaScript:showgg(4);">安全中心</a></li>
+						onmouseover="JavaScript:showgg(4);">安全中心</a>
+					</li>
 					<li id="hao_gg5"><a href="#"
-						onmouseover="JavaScript:showgg(5);">公益</a></li>
+						onmouseover="JavaScript:showgg(5);">公益</a>
+					</li>
 				</ul>
 				<div id="hao_ad321">
 					<ul>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜1</a>
-						</li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
+						<li><a href="#">整蛊玩具排行榜1</a></li>
 					</ul>
 				</div>
 				<div id="hao_ad322">
 					<ul>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜2</a>
-						</li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
+						<li><a href="#">整蛊玩具排行榜2</a></li>
 					</ul>
 				</div>
 				<div id="hao_ad323">
 					<ul>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜3</a>
-						</li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
+						<li><a href="#">整蛊玩具排行榜3</a></li>
 					</ul>
 				</div>
 				<div id="hao_ad324">
 					<ul>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜4</a>
-						</li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
+						<li><a href="#">整蛊玩具排行榜4</a></li>
 					</ul>
 				</div>
 				<div id="hao_ad325">
 					<ul>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
-						<li><a href="#">整蛊玩具排行榜5</a>
-						</li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
+						<li><a href="#">整蛊玩具排行榜5</a></li>
 					</ul>
 				</div>
 
@@ -249,13 +193,17 @@
 					<li><font size="4px" color="black" style="font-weight: bold;">便民服务</font>
 					</li>
 					<li id="hao_gf1"><a href="#"
-						onmouseover="JavaScript:showbm(1);">充值</a></li>
+						onmouseover="JavaScript:showbm(1);">充值</a>
+					</li>
 					<li id="hao_gf2"><a href="#"
-						onmouseover="JavaScript:showbm(2);">彩票</a></li>
+						onmouseover="JavaScript:showbm(2);">彩票</a>
+					</li>
 					<li id="hao_gf3"><a href="#"
-						onmouseover="JavaScript:showbm(3);">游戏</a></li>
+						onmouseover="JavaScript:showbm(3);">游戏</a>
+					</li>
 					<li id="hao_gf4"><a href="#"
-						onmouseover="JavaScript:showbm(4);">礼品卡</a></li>
+						onmouseover="JavaScript:showbm(4);">礼品卡</a>
+					</li>
 				</ul>
 
 				<img src="images/ad41.png" id="hao_ad421"></img> <img
@@ -271,30 +219,31 @@
 					</img>
 				</div>
 
-
-				<div id="hao_ad51">
-					<a href="JavaScript:showtj(1);">《</a>
-				</div>
-
-
-				<div id="d1"
+			<a href="GoodsServlet?flag=showlist&type=wh&pageNow=1"><div id="d1"
 					style="background-image: url(images/hu1.jpg);display: none;">
-				</div>
-				<div id="d2"
+				</div></a>	
+				<a href="GoodsServlet?flag=showlist&type=qz&pageNow=1"><div id="d2"
 					style="background-image: url(images/hu2.jpg);display: none;">
-				</div>
-				<div id="d3"
+				</div></a>
+				<a href="GoodsServlet?flag=showlist&type=ry&pageNow=1"><div id="d3"
 					style="background-image: url(images/hu3.jpg);display: none;">
-				</div>
-				<div id="d4"
+				</div></a>
+				<a href="GoodsServlet?flag=showlist&type=dz&pageNow=1"><div id="d4"
 					style="background-image: url(images/hu4.jpg);display: none;">
+				</div></a>
+				<div id="hao_ad51">
+					<%--<a href="JavaScript:showtj(1);">《</a> --%>
+					<a class="left carousel-control" href="JavaScript:showtj(1);"
+						data-slide="prev">&lsaquo;</a>
 				</div>
-
 				<div id="hao_ad53">
 					<!-- <a class="btn" onmouseover="showtj(1);" target="_self" href="#"><i
 						class="icon-arrow-right"></i>
 					</a> -->
-					<a href="JavaScript:showtj(2);">》</a>
+					<%--<a href="JavaScript:showtj(2);">》</a>
+					           --%>
+					<a class="right carousel-control" href="JavaScript:showtj(2);"
+						data-slide="next">&rsaquo;</a>
 				</div>
 
 			</div>
@@ -313,14 +262,12 @@
 					for (int i = 0; i < 8; i++) {
 				%>
 				<div id="sj1">
-					<a
-						href="GoodsServlet?flag=showinfo&id=<%=al.get(i).getGoodsId()%>"><img
+					<a href="GoodsServlet?flag=showinfo&id=<%=al.get(i).getGoodsId()%>"><img
 						src="img/<%=al.get(i).getG_images()%>"></img> <span><%=al.get(i).getG_name()%>
-				<br> <%
- 	    
- 		BigDecimal b = new BigDecimal(al.get(i).getG_price());
+							<br> <%
+ 	BigDecimal b = new BigDecimal(al.get(i).getG_price());
  		float f1 = b.setScale(1, BigDecimal.ROUND_HALF_UP).floatValue();
-                  %> ￥<%=f1%>
+ %> ￥<%=f1%>
 					</a> </span>
 				</div>
 

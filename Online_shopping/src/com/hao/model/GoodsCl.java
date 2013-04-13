@@ -5,12 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GoodsCl {
 	private Connection ct = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-	private int pageSize = 5;
+	private int pageSize = 5;//商品列表每页显示条数
+	private int c_pageSize=3;//评论每页显示条数
 
 	// 获取所有的商品
 	public ArrayList<Goods> getGoods() {
@@ -221,6 +223,9 @@ System.out.println("pageCount"+pageCount);*/
 		return al;
 	}
 
+	
+	
+	
 	public void setG(Goods gs, ResultSet rs) {
 		try {
 			gs.setGoodsId(rs.getInt(1));
@@ -257,6 +262,164 @@ System.out.println("pageCount"+pageCount);*/
 		}
 		return n;
 	}
+	
+	//删除某个商品
+	public boolean delGoods(int id) {
+		boolean b = false;
+		ct = new ConnDB().getConn();
+		try {
+			ps = ct.prepareStatement("delete from GOODS where GOODSID=" + id);
+			int a = ps.executeUpdate();
+			if (a>0) {
+			b=true	;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+
+		return b;
+	}
+	//增加评论
+	public boolean addComment(String name,String str,int id) {
+		boolean b = false;
+		ct = new ConnDB().getConn();
+		try {
+			String sql="insert into myshopping.comment(name,comm,goodsid) values" +
+					"('"+name+"','"+str+"',"+id+"); ";
+			//System.out.println(sql);
+			ps = ct.prepareStatement(sql);
+			int a = ps.executeUpdate();
+			if (a>0) 
+			b=true	;
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+
+		return b;
+	}
+
+//评论的数量
+	public int CountComment(int id) {
+		int b = 0;
+		ct = new ConnDB().getConn();
+		try {
+			String sql="select count(comm) from myshopping.comment where goodsid="+id;
+			//System.out.println(sql);
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) 
+			b=rs.getInt(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+
+		return b;
+	}
+	
+//取得用户名和评论	
+	public ArrayList<Comments> getComment(int id) {
+		ArrayList<Comments> al=new ArrayList<Comments>();
+		ct = new ConnDB().getConn();		
+		try {
+			String sql="select name,comm,time from myshopping.comment  where goodsid="+id +" order by time desc";
+			//System.out.println(sql);
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Comments cs=new Comments();
+				cs.setName(rs.getString(1));
+				cs.setComm(rs.getString(2));
+				cs.setTimestamp(rs.getTimestamp(3));
+				al.add(cs);
+				//System.out.println(rs.getString(1)+" "+rs.getString(2));
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+		/*System.out.println("qew"+al.size());*/
+		/*for (int i = 0; i < al.size(); i++) {
+			System.out.println(al.get(i).getName()+"wer "+al.get(i).getComm());
+		}*/
+		return al;
+	}
+	
+
+	
+	
+	// 返回数据总页数
+		/*public int getCommentCount(int id) {
+			int rowCount = 0;// 总共有几行记录
+			int pageCount = 0;
+			try {
+				// 得到连接
+				ct = new ConnDB().getConn();
+				// 查询
+				String sql = "select count(*) from myshopping.comment where goodsid="
+						+ id ;
+				ps = ct.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if (rs.next()) {
+					rowCount = rs.getInt(1);
+				}
+
+				if (rowCount * pageSize == 0) {
+					pageCount = rowCount / c_pageSize;
+				} else {
+					pageCount = rowCount / c_pageSize + 1;
+				}
+
+				// 计算pageCount
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				this.close();
+			}
+			return pageCount;
+		}
+
+		// 得到用户想要的显示的用户信息
+		public ArrayList<Comments> getCommentsByPage(int pageNow, int id) {
+
+			ArrayList<Comments> al = new ArrayList<Comments>();
+			try {
+				ct = new ConnDB().getConn();
+				// 创建Statement
+				String sql = "select name,comm from myshopping.comment  where  goodsid="+id+
+						" and goodsid not in(select t.goodsid from (select * from " +
+						"myshopping.comment where goodsid="+id+" limit 0,"
+						+ c_pageSize * (pageNow - 1)
+						+ ")as t)limit 0,"
+						+ c_pageSize
+						+ ";";
+				ps = ct.prepareStatement(sql);
+				rs = ps.executeQuery();
+
+				// 开始将rs封装ArrayList
+				while (rs.next()) {
+					Comments cs = new Comments();
+					cs.setGoodsid(id);
+					cs.setName(rs.getString(1));
+					cs.setComm(rs.getString(2));
+					al.add(cs);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				this.close();
+			}
+			return al;
+		}
+		*/
 
 	public void close() {
 		try {

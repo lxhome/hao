@@ -40,7 +40,7 @@ public class CartServlet extends HttpServlet {
 		response.setContentType("text/html;Charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		String idstr = (String) request.getParameter("id");
+		String idstr = (String) request.getParameter("id");//商品id
 
 		int id = 0;
 		if (idstr != null)
@@ -100,12 +100,13 @@ public class CartServlet extends HttpServlet {
 				if (hMap.size()>0) {
 					
 				
-				if (oc.setOrders(name, address, phone, username)) {// 数据存入roders表中
+				if (oc.setOrders(name, address, phone, username)) {// 数据存入orders表中
 
 					int temp = oc.getid();// 获取最近存入数据库的订单o_id
 					// System.out.println(temp+"temp");
 					// System.out.println(hMap.size()+"temp");
 					if (oc.setShop(temp, hMap))
+						if(oc.updateG(temp))
 						if (oc.delFlash(username)) {
 							String str = "你的订单已提交，我们将立即发货";
 							request.setAttribute("temp", str);

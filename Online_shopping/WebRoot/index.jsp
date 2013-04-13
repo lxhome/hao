@@ -262,7 +262,7 @@
 					for (int i = 0; i < 8; i++) {
 				%>
 				<div id="sj1">
-					<a href="GoodsServlet?flag=showinfo&id=<%=al.get(i).getGoodsId()%>"><img
+					<a href="GoodsServlet?flag=showinfo&id=<%=al.get(i).getGoodsId()%>&pageNow=1"><img
 						src="img/<%=al.get(i).getG_images()%>"></img> <span><%=al.get(i).getG_name()%>
 							<br> <%
  	BigDecimal b = new BigDecimal(al.get(i).getG_price());

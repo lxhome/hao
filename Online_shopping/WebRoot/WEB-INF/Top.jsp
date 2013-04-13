@@ -28,9 +28,7 @@
 <link rel="stylesheet" href="css/gobal.css" type="text/css"></link>
 <script type="text/javascript" src="js/my_js.js"></script>
 
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css"></link>
-
-</head>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css"></link></head>
 <body>
 	<div id="top" class="hao_top">
 		<img src="images/1.png" id="top_img"></img>

@@ -213,3 +213,17 @@ body p {
     margin-left:205px;
     display: block;
 }
+
+#goo_pinglun2{
+	/* height: 500px; */
+	/* background-color: red; */	
+	width: 900px;
+	margin: 0 auto;
+	display: none;
+	min-height: 100px;
+}
+
+#info3{
+	list-style: none;
+
+}

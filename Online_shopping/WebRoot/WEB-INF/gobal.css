@@ -1,0 +1,15 @@
+body {
+	font: normal 12px Tahoma, ËÎÌו;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FCFDDD;
+}
+
+
+a:link {
+	text-decoration: none;
+}
+
+a:HOVER {
+	color: red;
+}

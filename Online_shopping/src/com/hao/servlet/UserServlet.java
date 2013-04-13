@@ -2,6 +2,7 @@ package com.hao.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.jms.Session;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hao.model.Comments;
+import com.hao.model.Goods;
+import com.hao.model.GoodsCl;
 import com.hao.model.Users;
 import com.hao.model.UsersCl;
 
@@ -37,7 +41,7 @@ public class UserServlet extends HttpServlet {
 		String flag = (String) request.getParameter("flag");
 		String u = request.getParameter("username");
 		String p = request.getParameter("pwd");
-
+		GoodsCl gc=new GoodsCl();
 		UsersCl uc = new UsersCl();
 		// 注册
 		// System.out.println(flag);
@@ -111,20 +115,26 @@ public class UserServlet extends HttpServlet {
 			if (uc.checkLogin(u, p)) {
 				Users us = uc.getUsers(u);
 				if (id != 0) {
+					//System.out.println(id);
 					request.getSession().setAttribute("admin", us);
-					request.getRequestDispatcher("index.jsp").forward(request,
-							response);
-				} else {
-					String str = "您已登录成功";
-					request.setAttribute("temp", str);
-					request.getSession().setAttribute("admin", us);
-					request.getRequestDispatcher("success.jsp").forward(
-							request, response);
-				}
-			} else {
+					ArrayList<Comments> al = gc.getComment(id);
+					request.setAttribute("result", al);
+					Goods gs=gc.get_aGoods(id);
+					request.setAttribute("goodsinfo",gs);
+					request.getRequestDispatcher("goodsinfo.jsp").forward(request, response);
+				} else if (us.getPower()==1) {						
+						String str = "您已登录成功";
+						request.setAttribute("temp", str);
+						request.getSession().setAttribute("admin", us);
+						request.getRequestDispatcher("success.jsp").forward(
+								request, response);
+					}else 
+						request.getRequestDispatcher("Login.jsp").forward(request,
+								response);			
+			} else 
 				request.getRequestDispatcher("Login.jsp").forward(request,
 						response);
-			}
+			
 
 		} else if (flag.equals("zhuxiao")) {
 			request.getSession().setAttribute("admin", null);

@@ -6,7 +6,7 @@ public class Orders {
 	private String time;
 	private String phone;
 	private String o_name;
-
+  
 	public int getId() {
 		return id;
 	}

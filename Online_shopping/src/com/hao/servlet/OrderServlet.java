@@ -39,19 +39,24 @@ public class OrderServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String flag = request.getParameter("flag");
 		String idstr = (String) request.getParameter("id");
-		// System.out.println(idstr);
+		 //System.out.println(idstr);
 		int id = 0;
 		if (idstr != null)
 			id = Integer.parseInt(idstr);
-		//System.out.println(id+"==id1");
+		
 		Users user=(Users)request.getSession().getAttribute("admin");
 		if (flag.equals("orderflash")) {
+			
 			if(user!=null){
+			
 			OrdersCl oc = new OrdersCl();
 			GoodsCl gc = new GoodsCl();
 			ArrayList<Flash> al = new ArrayList<Flash>();
-			if (id != 0) {
-				if(oc.checkId(id)){
+			if (id != 0) {	
+				//System.out.println(id+"==i2");
+				String name=(String)user.getName();
+				if(oc.checkId(id,name)){
+				//	System.out.println(id+"==i");
 				Goods gs = gc.get_aGoods(id);
 				if (oc.setFlash(gs,user.getName())) {
 					//System.out.println(id+"==id2");										

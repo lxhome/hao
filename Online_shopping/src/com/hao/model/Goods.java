@@ -1,5 +1,6 @@
 package com.hao.model;
 import java.math.*;
+import java.sql.Timestamp;
 public class Goods {
    private int goodsId;
    private String  g_name;
@@ -9,8 +10,17 @@ public class Goods {
    private String g_type;
    private String g_images;
 	private String specificClass;
+	private Timestamp timestamp;
 	
 	
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+
 	public int getGoodsId() {
 		return goodsId;
 	}

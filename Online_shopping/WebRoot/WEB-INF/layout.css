@@ -1,0 +1,331 @@
+/*测试*/
+.hao{
+	//background-color: red;	
+}
+
+#ceshi{
+	height: 600px;
+	background-color: gray;
+}
+
+
+#footer {
+	/*width: 100%;*/
+	/* height:150px;*/
+	text-align: center;
+	line-height: 20px;
+	/* clear:both;*/
+}
+
+/*a:VISITED {
+	color: yellow;
+}*/
+#container { /*background-color:red;*/
+	width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#top {
+	/*background-color: #9CCA6C;*/
+}
+
+.hao_top{
+	height:100px;
+	overflow: hidden;
+}
+
+#top_img{
+	padding-top: 10px;
+	padding-left: 10px;
+	float: left;
+}
+
+#hao_time{
+  margin-left: 460px;
+  font-size: 14px;
+}
+
+
+#hao_top1{
+	/* background-color:red; */
+	margin-top:44px;
+	float:right;
+	margin-right: 6px;
+	padding:13px 0px 0px 0px;
+}
+
+#hao_top1 li{	
+	float:left;
+	padding-left: 6px;
+	font-size: 16px;
+	list-style: none;
+}
+
+#hao_top1 a{
+	color: #FF9900;
+}
+
+#hao_top1 a:HOVER{
+	color: blue;
+}
+
+
+#hao_ad{
+	margin-top:6px;
+	overflow: hidden;
+}
+
+#ad12{
+	font-weight: bold;
+}
+
+#ad12 li{
+	padding-left: 15px;
+}
+
+#ad12 a{
+	color: black;
+	text-decoration: none;
+}
+
+#ad12 a:HOVER{
+	color: red;
+}
+
+#hao_ad1{	
+	float: left;
+	width:190px;
+	height:430px;
+	background-color: #EFFDFA;
+}
+
+#hao_ad1 li{
+	list-style: none;
+	margin: 0;
+}
+
+#hao_ad2{
+    margin-left:5px;
+	 float: left; 
+	width:505px;
+	height:230px;
+	position:relative;
+	 /* background-color: blue; */ 
+}
+
+#hao_ad2 img{
+	width:510px;
+	height:230px;
+}
+
+#hao_div2,#hao_div3,#hao_div4,#hao_ad321,#hao_ad322,#hao_ad323,#hao_ad324,#hao_ad325{
+	display: none;
+}
+
+#hao_ad3{
+	border-color:gray;
+	border-style:solid;
+	float: right;
+	width:275px;
+	height:145px;
+	border-width:1px;
+	/* font-size: 14px; */
+	/* background-color: blue;  */
+}
+
+#hao_ad3 li,#hao_ad4  li{
+	margin-right: 10px;
+	display:inline;
+	list-style: none;
+	margin-bottom: 10px;
+	/* background-color: gray; */
+}
+
+#hao_ad3 a,#hao_ad4 a{
+	color: black;
+}
+
+#hao_ad3 a:HOVER,#hao_ad4 a:HOVER{
+	color: red;
+}
+
+
+
+#hao_ad31{
+	margin: 0px;
+	padding-left: 3px;
+	background-color: gray;
+	height: 25px;	 
+}
+
+#hao_gg1,#hao_gg2,#hao_gg3,#hao_gg4,#hao_gg5{
+	 /* background-color: white;  */
+	/* margin-bottom: -5px; */
+	position: relative;
+	 /* bottom: -2px; */ 
+	/* color: black; */
+	/* border: 1px solid; */
+    /* border-bottom: none; */
+    /* border-color: gray; */
+    /* font-weight: bold; */
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#hao_ad321,#hao_ad322,#hao_ad323,#hao_ad324,#hao_ad325{
+	position:relative;
+	margin-top: 10px;
+	height: 20px;
+	font-size: 14px;
+}
+
+#hao_ad4{
+	margin-top:6px;
+	float: right;
+	width:275px;
+	height:200px;
+	/* background-color: blue; */
+	border-color:gray;
+	border-style: solid;
+	border-width: 1px;
+}
+
+#hao_ad4 img{
+	width: 275px;
+	height: 170px;
+}
+
+#hao_ad41{
+	margin: 0px;
+	background-color: gray;
+	height: 25px;	 
+}
+
+#hao_gf1,#hao_gf2,#hao_gf3,#hao_gf4{
+	margin:0;
+	position: relative;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#hao_adv {
+	position:absolute;
+	bottom:15px;
+	right:70px;
+	text-align:center;
+	}
+	
+#hao_adv a{/*切换广告时的数字按键*/
+     		    font-size:14px;
+				text-decoration:none;
+				background-color:#cccccc;
+				padding:5px 10px;
+		   }
+		   
+#hao_ad5{
+	position:relative;
+	width:505px;
+	height: 193px;
+	float:left;
+	margin-left:5px;
+	margin-top:6px;
+	/* background-color: gray; */
+	font-size: 18px;
+	 border-width: 1px; 
+	 border-color: white; 
+	 border-style: solid; 
+}	
+
+#hao_ad51{
+	position:absolute;
+	top:50%;
+	left:0px;
+	text-align:center;
+}
+
+
+/* #hao_ad51 a,#hao_ad53 a{
+     		    font-size:14px;
+				text-decoration:none;
+				background-color:#cccccc;
+				padding:5px 5px;
+		   } */
+
+
+#d1,#d2,#d3,#d4{
+	position:relative;
+	width:450px;
+	height:140px;
+	 background-color: red; 
+	 left:27px; 
+	top:15px;   
+	float:left;
+  /*   right:27px; 
+	float: right;  */ 
+	background-position-x:0px; 
+}
+
+
+
+#hao_ad524 img{
+	width:540;
+	height:140;
+	padding-right:6px; 
+	padding-left:6px; 
+}
+
+#hao_ad53{
+	position:absolute;
+	top:50%;
+	right:0px;
+	text-align:center;
+}
+
+
+#hao_ad6{
+	width:700px;
+	height: 520px;
+	float:left;
+	margin-top:6px;
+	/* background-color: gray; */
+	font-size: 18px;
+}
+
+#hao_ad61{
+    border-top-style: solid;
+    border-top-color: #FF9900;
+}
+
+#sj1{
+	text-align:center;
+	font-size:14px;
+	float:left;
+    padding-left:5px;
+	padding-top:5px;
+	width:170px;
+	height:250px;
+}
+
+#sj1 img{
+	width:169px;
+	height:163px;
+}
+
+#hao_ad7{
+	/* position:relative;
+    top:6px;
+    left: 4px; */
+    margin-top:-70px;
+    float: right;
+    width:275px;
+	height: 250px;
+}
+#hao_ad7 img{	
+	height: 250px;
+}
+
+#hao_hr{
+	background-color: #FF9900;
+	height: 3px;
+}

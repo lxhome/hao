@@ -1,5 +1,7 @@
 //arguments[2]
 
+
+
 //广告切换
 var nowFrame = 1;
 

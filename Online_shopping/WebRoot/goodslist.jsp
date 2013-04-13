@@ -74,7 +74,7 @@
 							Goods gs = (Goods) al.get(i);
 				%>
 				<div id="gl4">
-					<a href="GoodsServlet?flag=showinfo&id=<%=gs.getGoodsId()%>"><img
+					<a href="GoodsServlet?flag=showinfo&id=<%=gs.getGoodsId()%>&pageNow=1"><img
 						src="img/<%=gs.getG_images()%>"></img> </a>
 				</div>
 				<div id="gl5">

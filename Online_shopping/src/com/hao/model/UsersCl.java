@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UsersCl {
      private Connection ct=null;
@@ -102,6 +103,35 @@ public class UsersCl {
     	 return users;
      }
      
+   //记录用户的所有信息
+     public ArrayList<Users> getUsers(){
+    	 ArrayList<Users> al=new ArrayList<Users>();
+    	
+    	 try {
+ 			ct=new ConnDB().getConn();
+ 			String sql="select * from myshopping.users";
+ 			//select password from myshopping.users where name="root" ;
+ 			ps=ct.prepareStatement(sql);
+ 			rs=ps.executeQuery();
+ 			while(rs.next()){
+ 			 Users users=new Users();
+ 				users.setName(rs.getString(1));
+ 				users.setPassword(rs.getString(2));
+ 				users.setEmail(rs.getString(3));
+ 				users.setSex(rs.getString(4));
+ 				users.setPower(rs.getInt(5));
+ 				al.add(users);
+ 			}
+ 			
+ 		} catch (Exception e) {
+ 			// TODO: handle exception
+ 		}finally{
+ 			this.close();
+ 		}
+    	 return al;
+     }
+     
+     
      //修改密码
      public boolean updateCode(String u,String p){
     		boolean b=false;
@@ -111,7 +141,7 @@ public class UsersCl {
     			//insert into myshopping.flash(id,name,price) values(1,'qwe',1);  			
     			ps=ct.prepareStatement(sql);
     			int a=ps.executeUpdate();
-    			System.out.println("a="+a);
+    			//System.out.println("a="+a);
     			if(a>0){
     				b=true;
     			}
@@ -120,7 +150,7 @@ public class UsersCl {
     		}finally{
     			this.close();
     		}
-    		System.out.println("b="+b);
+    		//System.out.println("b="+b);
     		return b;
      }
      

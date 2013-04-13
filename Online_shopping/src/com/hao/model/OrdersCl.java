@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.hao.man.OrderMan;
+
 import sun.security.timestamp.TSRequest;
 
 public class OrdersCl {
@@ -109,7 +111,7 @@ public class OrdersCl {
 	}
 
 	public boolean delOr(int id, String name) {
-		//System.out.println("123");
+		// System.out.println("123");
 		boolean b = false;
 		try {
 			ct = new ConnDB().getConn();
@@ -201,7 +203,6 @@ public class OrdersCl {
 
 	public HashMap<Integer, Integer> getMap(String name) {
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		boolean b = false;
 		try {
 			ct = new ConnDB().getConn();
 			String sql = "select id,amount from myshopping.flash  where username='"
@@ -244,14 +245,93 @@ public class OrdersCl {
 
 		return b;
 	}
+	
+	//对应订单钟每个商品，修改goods表中的数量
+	public boolean updateG(int o_id){
+		boolean b=false;
+		try {
+			ct=new ConnDB().getConn();
+			String sql="select goodsid from myshopping.shop where o_id="+o_id;
+			ps=ct.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while (rs.next()) {
+				int id=rs.getInt(1);
+				if(updateGoods(o_id, id))b=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return b;
+	}
 
+	//根据订单修改goods表中一个商品的数量
+	public boolean updateGoods(int o_id,int id){
+		boolean b=false;
+		String sql=getSqlString(o_id, id);
+		try {
+			ct=new ConnDB().getConn();
+			ps=ct.prepareStatement(sql);
+			int a=ps.executeUpdate();
+			if(a>0){
+				b=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			this.close();
+		}
+		return b;
+	}
+	
+
+//获得订单中商品的修改的数量的sql语句
+	public String getSqlString(int o_id,int id){
+		String str="";
+		int n=0;
+		try {
+			ct=new ConnDB().getConn();
+			String sql="select s_no from myshopping.shop where o_id="+o_id+" and goodsid="+id;
+			ps=ct.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while (rs.next()) {			
+			n=rs.getInt(1);	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			this.close();
+		}
+		int temp=getN(id);//
+	//str="update myshopping.goods set g_amount="+10000;
+		str="update myshopping.goods set g_amount="+(temp-n)+" where goodsid="+id;
+		return str;
+	}
+//获得商品的数量	
+	public int getN(int id){
+		int n=0;
+		try {
+			ct=new ConnDB().getConn();
+			String sql="select g_amount from myshopping.goods where goodsid="+id;
+			ps=ct.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while (rs.next()) {			
+			n=rs.getInt(1);	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			this.close();
+		}		
+		return n;
+	}
+	
 	public String getSql(int a, int b, int c) {
 		String sql = "insert into myshopping.shop(o_id,goodsid,s_no) values("
 				+ a + "," + b + "," + c + ");";
 		// System.out.println("sql="+sql);
 		return sql;
-	}
-
+	}	
+	
 	public boolean delFlash(String name) {
 		// System.out.println("123");
 		boolean b = false;
@@ -272,23 +352,25 @@ public class OrdersCl {
 		}
 		return b;
 	}
-	
-	public boolean checkId(int id){
-		boolean b=true;
-		ct=new ConnDB().getConn();
+
+	public boolean checkId(int id,String name) {
+		boolean b = true;
+		ct = new ConnDB().getConn();
 		try {
-			String sql="select id from myshopping.flash;";
-			ps=ct.prepareStatement(sql);
-			rs=ps.executeQuery();
+			String sql = "select id,username from myshopping.flash;";
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
-				int a=rs.getInt(1);
-				if (a==id) {
-					b=false;
-				} 
+				int a = rs.getInt(1);
+				String name2=rs.getString(2);
+				//System.out.println(name2);
+				if (a == id&&name.equals(name2)) {
+					b = false;
+				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-		}finally{
+		} finally {
 			this.close();
 		}
 		return b;
@@ -308,8 +390,10 @@ public class OrdersCl {
 		ArrayList<Records> al = new ArrayList<Records>();
 		try {
 			ct = new ConnDB().getConn();
-			String sql = "Select O.time,g_name,s_no,g_price from myshopping.shop S,myshopping.goods G," +
-					"myshopping.orders O where O.o_name='"+u+"' and O.o_id=S.o_id and S.goodsid=G.goodsid;";
+			String sql = "Select O.time,g_name,s_no,g_price from myshopping.shop S,myshopping.goods G,"
+					+ "myshopping.orders O where O.o_name='"
+					+ u
+					+ "' and O.o_id=S.o_id and S.goodsid=G.goodsid;";
 			// Select s_no,g_price,g_name,O.time from myshopping.shop
 			// S,myshopping.goods G,myshopping.orders O where O.o_name='1' and
 			// O.o_id=S.o_id and S.goodsid=G.goodsid;
@@ -320,9 +404,66 @@ public class OrdersCl {
 				rc.setTime(rs.getTimestamp(1));
 				rc.setO_name(rs.getString(2));
 				rc.setAmount(rs.getInt(3));
-				rc.setPrice(rs.getFloat(4));			
+				rc.setPrice(rs.getFloat(4));
 				al.add(rc);
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+		return al;
+	}
+
+	// 获得所有的订单信息
+	public ArrayList<OrderMan> getRecord() {
+		ArrayList<OrderMan> al = new ArrayList<OrderMan>();
+		try {
+			ct = new ConnDB().getConn();
+			String sql = "select O.time,O.cus_name,phone,O.o_name,G.g_name,S.s_no,G.g_price from myshopping.goods G, myshopping.orders O,myshopping.shop S where O.o_id=S.o_id and S.goodsid=G.goodsid;";
+			// Select s_no,g_price,g_name,O.time from myshopping.shop
+			// S,myshopping.goods G,myshopping.orders O where O.o_name='1' and
+			// O.o_id=S.o_id and S.goodsid=G.goodsid;
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				OrderMan rc = new OrderMan();
+				 rc.setTime(rs.getTimestamp(1));
+				 rc.setCus_name(rs.getString(2));
+				 rc.setPhone(rs.getString(3));
+				 rc.setO_name(rs.getString(4));
+				 rc.setName(rs.getString(5));
+				 rc.setAmount(rs.getInt(6));
+				 rc.setPrice(rs.getFloat(7));
+				 al.add(rc);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			this.close();
+		}
+		return al;
+	}
+
+	// 获得所有的flash
+	public ArrayList<Flash> getFlash() {
+		ArrayList<Flash> al = new ArrayList<Flash>();
+		try {
+			ct = new ConnDB().getConn();
+			String sql = "select * from myshopping.flash ";
+			// insert into myshopping.flash(id,name,price) values(1,'qwe',1);
+			ps = ct.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Flash fa = new Flash();
+				fa.setId(rs.getInt(1));
+				fa.setName(rs.getString(2));
+				fa.setPrice(rs.getInt(3));
+				fa.setAmount(rs.getInt(4));
+				al.add(fa);
+			}
+			// System.out.println("al++"+al.size());
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {

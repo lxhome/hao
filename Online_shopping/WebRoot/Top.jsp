@@ -38,7 +38,7 @@
 		<ul id="hao_top1">
 		<%
 		if(user!=null)
-		if(user.getPower()==0){ %>
+		if(user.getPower()==0||user.getPower()==2||user.getPower()==3){ %>
 		<li><a href="admin/AdminIndex.jsp" target="_self">进入管理页</li>
 		<%} %>
 			<li class=""><a href="OrderServlet?flag=orderflash" target="_parent">购物车</a>

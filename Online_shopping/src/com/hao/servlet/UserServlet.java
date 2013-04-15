@@ -114,7 +114,7 @@ public class UserServlet extends HttpServlet {
 
 			if (uc.checkLogin(u, p)) {
 				Users us = uc.getUsers(u);
-				if (id != 0) {
+				if (id != 0&&us.getPower()==1) {
 					//System.out.println(id);
 					request.getSession().setAttribute("admin", us);
 					ArrayList<Comments> al = gc.getComment(id);

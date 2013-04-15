@@ -103,10 +103,10 @@ public class UsersCl {
     	 return users;
      }
      
+     
    //记录用户的所有信息
      public ArrayList<Users> getUsers(){
-    	 ArrayList<Users> al=new ArrayList<Users>();
-    	
+    	 ArrayList<Users> al=new ArrayList<Users>(); 	
     	 try {
  			ct=new ConnDB().getConn();
  			String sql="select * from myshopping.users";
@@ -130,6 +130,9 @@ public class UsersCl {
  		}
     	 return al;
      }
+     
+
+
      
      
      //修改密码

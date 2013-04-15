@@ -1,0 +1,52 @@
+a:HOVER{
+	color: red;
+	text-decoration: none;
+}
+a{
+	text-decoration: none;
+}
+
+#top{
+	width: 100%;
+	height: 100px;
+	text-align:center;
+	background-color: #FCFDDD;
+}
+
+#myjsp{
+	width: 100%;
+	/* background-color: red; */
+	padding-left: 40%;
+}
+
+#li1 li{
+	list-style: none;
+
+}
+
+#myord,#myta{
+	width:100%;
+	height: 30px;
+	text-align: center;
+}
+
+#myord td,#myta td{
+	width:200px;
+	text-align: center;
+}
+
+#myord2{
+	width:100%;
+	min-height: 30px;
+	text-align: center;
+	background-color: #EFFDFA;
+}
+
+#myord3{
+	width:100%;
+	height: 30px;
+	text-align: center;
+	/* background-color: yellow; */
+}
+
+

@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+body{
+	background-image: url(../images/bank.png);
+}
+
+#bank{
+	position:absolute;
+  width:280px;
+  height:250px;
+  margin-left: 216px;
+  margin-top: 	125px;
+  /* background-color: red; */
+}
+
+#bank1{
+  position:absolute;
+  width:550px;
+  height:250px;
+  margin-left: 560px;
+  margin-top: 	125px;
+  /*  display: none;  */
+ /*  background-color: red; */
+}
+
+#bank2{
+  position:absolute;
+  width:550px;
+  height:250px;
+  margin-left: 560px;
+  margin-top: 	125px;
+   display: none;
+  /* background-color: red; */
+}
+
+#bank3{
+  position:absolute;
+  width:550px;
+  height:250px;
+  margin-left: 560px;
+  margin-top: 	125px;
+   /* display: none; */
+  /* background-color: red; */
+}

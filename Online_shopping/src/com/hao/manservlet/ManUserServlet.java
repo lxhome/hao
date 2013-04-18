@@ -84,7 +84,7 @@ public class ManUserServlet extends HttpServlet {
 				request.setAttribute("Mes", al);
 				}
 			}
-			/*System.out.println(al.size());*/
+			//System.out.println(al.size());
 			request.getRequestDispatcher("admin/MyOrder2.jsp").forward(request, response);
 			}else{
 			request.getRequestDispatcher("admin/Login.jsp").forward(request, response);					

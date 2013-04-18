@@ -89,7 +89,7 @@
 					<td>价格</td>
 				</tr>
 				<%
-					for (int i = 0; i < al.size(); i++) {
+					for (int i = 0; i < aList.size(); i++) {
 							Timestamp ts1 = aList.get(i).getTime();
 							if (ts.equals(ts1)) {
 				%>

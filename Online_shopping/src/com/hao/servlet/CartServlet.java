@@ -40,7 +40,7 @@ public class CartServlet extends HttpServlet {
 		response.setContentType("text/html;Charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		String idstr = (String) request.getParameter("id");//商品id
+		String idstr = (String) request.getParameter("id");// 商品id
 
 		int id = 0;
 		if (idstr != null)
@@ -87,46 +87,58 @@ public class CartServlet extends HttpServlet {
 					response);
 		} else if (flag.equals("tableins")) {
 			String checkNn = (String) request.getParameter("checkNn");
+			String mon = (String) request.getParameter("mon");
 			/* System.out.println((name.length())+" q"+(address)+" w"+(phone)); */
 			// System.out.println(flag+" e"+(name.equals(""))+" q"+(address.equals(null))+" w"+(phone==null));
 			// \
 			// System.out.println(phone2.equals(""));
+
 			if (!name.equals("") && !address.equals("") && !phone.equals("")
-					&& phone2.equals("") && checkNn.equals("")) {
+					&& phone2.equals("") && checkNn.equals("")&&mon!=null) {
 				// System.out.println("1235");
-
-				HashMap<Integer, Integer> hMap = (HashMap<Integer, Integer>) oc
-						.getMap(username);
-				if (hMap.size()>0) {
-					
 				
-				if (oc.setOrders(name, address, phone, username)) {// 数据存入orders表中
+					HashMap<Integer, Integer> hMap = (HashMap<Integer, Integer>) oc
+							.getMap(username);
+					if (hMap.size() > 0) {// 从flash表中获取数据
+						if (mon.equals("1")){ //货到付款
+						if (oc.setOrders(name, address, phone, username)) {// 数据存入orders表中
 
-					int temp = oc.getid();// 获取最近存入数据库的订单o_id
-					// System.out.println(temp+"temp");
-					// System.out.println(hMap.size()+"temp");
-					if (oc.setShop(temp, hMap))
-						if(oc.updateG(temp))
-						if (oc.delFlash(username)) {
-							String str = "你的订单已提交，我们将立即发货";
-							request.setAttribute("temp", str);
-							request.getRequestDispatcher("success.jsp")
-									.forward(request, response);
+							int temp = oc.getid();// 获取最近存入数据库的订单o_id
+							// System.out.println(temp+"temp");
+							// System.out.println(hMap.size()+"temp");
+							if (oc.setShop(temp, hMap))
+								if (oc.updateG(temp))
+									if (oc.delFlash(username)) {
+										String str = "你的订单已提交，我们将立即发货";
+										request.setAttribute("temp", str);
+										request.getRequestDispatcher(
+												"success.jsp").forward(request,
+												response);
+									}
 						}
-				}
-				}else{
-					request.setAttribute("dingdan", "您没有订购什么商品");
-					ArrayList<Flash> al = new ArrayList<Flash>();
-					al = oc.getFlash(users.getName());
-					request.setAttribute("order", al);
-					request.getRequestDispatcher("Cart_2.jsp").forward(request,
-							response);
-				}
-
+						} else if (mon.equals("2")) {//网上支付
+							request.getSession().setAttribute("name",name);
+							request.getSession().setAttribute("address", address);
+							request.getSession().setAttribute("phone", phone);
+		                       request.getRequestDispatcher("Bank.jsp").forward(
+										request, response);
+						}
+					} else {
+						request.setAttribute("dingdan", "您没有订购什么商品");
+						ArrayList<Flash> al = new ArrayList<Flash>();
+						al = oc.getFlash(users.getName());
+						request.setAttribute("order", al);
+						request.getRequestDispatcher("Cart_2.jsp").forward(
+								request, response);
+					}
+				
 			}
+
 			// if(name.length()!=0&&address.length()!=0&&phone.length()!=0){
 			/* System.out.println("1235");} */
 			else {
+				if(mon==null||mon.equals(""))
+					request.setAttribute("dingdan", "您没有选择支付方式");
 				if (phone2.equals("p2")) {
 					request.setAttribute("phone2", "手机号码错误");
 				}
@@ -144,7 +156,9 @@ public class CartServlet extends HttpServlet {
 						response);
 			}
 
-		} else if (flag.equals("getMes")) {
+		}/* 货到付款 */
+
+		else if (flag.equals("getMes")) {
 			ArrayList<Records> al = new ArrayList<Records>();
 			al = oc.setRecord(username);
 			// System.out.println("username="+username);

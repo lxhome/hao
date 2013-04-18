@@ -78,7 +78,7 @@
 						<td>0件</td>
 					</tr>
 					<%if(dingdan!=null){ %>
-					<tr><font color="red"><h3>您没有订购任何商品,请您选购商品之后再提交</h3></font></tr>
+					<tr><font color="red"><h3>您没有订购任何商品或者未选择支付方式,请您选购商品之后再提交</h3></font></tr>
 					<%} %>
 					<%
 						}
@@ -98,6 +98,13 @@
 					<tbody>
 						<tr id="tr2">
 							<td colspan="3">补充您的邮件地址和联系人基本信息</td>
+						</tr>
+						<tr><td colspan="3" style="padding-left: 20%;">
+						<input type="radio" name="mon" value="1">
+						<font style="font-weight: bold;" color="red">货到付款</font>
+						<input type="radio" name="mon" value="2">
+						<font style="font-weight: bold;" color="red">网上支付</font>
+						</td>
 						</tr>
 						<tr>
 							<td id="tr4"><label for="username"><h4>收件人姓名：</h4> </label>

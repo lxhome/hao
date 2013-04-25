@@ -200,6 +200,112 @@ function showtj() {
 	//alert($("d1").offsetRight+"ert"+$("d1").offsetLeft);
 }
 
+function showad(){
+	var x=arguments[0];
+	if(x==0){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";	
+	}
+	else if(x==1){
+		$("newadd").style.display="block";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==2){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="block";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";	
+	}else if(x==3){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="block";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==4){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="block";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==5){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="block";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==6){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="block";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==7){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="block";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="none";
+	}else if(x==8){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="block";
+		$("newadd9").style.display="none";
+	}else if(x==9){
+		$("newadd").style.display="none";
+		$("newadd2").style.display="none";
+		$("newadd3").style.display="none";
+		$("newadd4").style.display="none";
+		$("newadd5").style.display="none";
+		$("newadd6").style.display="none";
+		$("newadd7").style.display="none";
+		$("newadd8").style.display="none";
+		$("newadd9").style.display="block";
+	}
+}
+
 function $(id) {
 	return document.getElementById(id);
 }

@@ -44,6 +44,9 @@ body p {
 #reg1 {
 	margin-top: 12px;
 }
+#image2,#image3,#image4{
+	display: none;
+}
 
 #info {
 	list-style: none;
@@ -55,9 +58,14 @@ body p {
 	border: 1px solid gray;
 }
 
-#info img {
+#info_1 img {
 	width: 300px;
-	height: 300px;
+	height: 250px;
+}
+
+#info_2 img {
+	width: 50px;
+	height: 48px;
 }
 
 #info2 {

@@ -30,6 +30,8 @@
 	/*background-color: #9CCA6C;*/
 }
 
+
+
 .hao_top{
 	height:100px;
 	overflow: hidden;
@@ -70,6 +72,22 @@
 	color: blue;
 }
 
+ #newadd,#newadd2,#newadd3,#newadd4,#newadd5,#newadd6,#newadd7,#newadd8,#newadd9{
+ position:absolute;
+	width:430px;
+	height:430px;
+	margin-left:150px;
+	background-color: #EFEFEF;
+	display: none;
+}
+
+#newadd th,#newadd2 th,#newadd3 th,#newadd4 th,#newadd5 th,#newadd6 th,#newadd7 th,#newadd8 th,#newadd9 th{
+	width:100px;
+	height:20px;
+	border-right: 1px solid;
+	line-height: 5px;
+	text-align: center;
+} 
 
 #hao_ad{
 	margin-top:6px;
@@ -95,9 +113,12 @@
 
 #hao_ad1{	
 	float: left;
-	width:190px;
-	height:430px;
+	/* width:190px;
+	height:430px; */
+	width:185px;
+	height:425px;
 	background-color: #EFFDFA;
+	border: 1px solid;
 }
 
 #hao_ad1 li{

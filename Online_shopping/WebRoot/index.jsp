@@ -41,37 +41,38 @@
 <body onload="show();showgg(1);showbm(1);showtj();">
 	<div id="container">
 		<jsp:include page="Top.jsp"></jsp:include><!--  -->
-
+		
 		<div id="hao_ad">
+	
 			<div id="hao_ad1">
 				<font size="5" style="font-weight: bold;padding-left: 15px;">商城服务</font>
 				<hr>
 				<ul id="ad12" style="margin: 0px;">
-					<li><a href="GoodsServlet?flag=showlist&type=fz&pageNow=1"><h4>服装</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=fz&pageNow=1" onmouseover="showad(1)" onmouseout="showad(0)"><h4>服装</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=xb&pageNow=1"><h4>鞋包</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=xb&pageNow=1" onmouseover="showad(2)" onmouseout="showad(0)"><h4>鞋包</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=zb&pageNow=1"><h4>珠宝手表</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=zb&pageNow=1" onmouseover="showad(3)" onmouseout="showad(0)"><h4>珠宝手表</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=sm&pageNow=1"><h4>数码</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=sm&pageNow=1" onmouseover="showad(4)" onmouseout="showad(0)"><h4>数码</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=dz&pageNow=1"><h4>电子产品</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=dz&pageNow=1" onmouseover="showad(5)" onmouseout="showad(0)"><h4>电子产品</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=ry&pageNow=1"><h4>日用百货</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=ry&pageNow=1" onmouseover="showad(6)" onmouseout="showad(0)"><h4>日用百货</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=wh&pageNow=1"><h4>文化玩乐</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=wh&pageNow=1" onmouseover="showad(7)" onmouseout="showad(0)"><h4>文化玩乐</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=qz&pageNow=1"><h4>汽车用品</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=qz&pageNow=1" onmouseover="showad(8)" onmouseout="showad(0)"><h4>汽车用品</h4>
 					</a>
 						<hr></li>
-					<li><a href="GoodsServlet?flag=showlist&type=pg&pageNow=1"><h4>苹果/配件</h4>
+					<li><a href="GoodsServlet?flag=showlist&type=pg&pageNow=1" onmouseover="showad(9)" onmouseout="showad(0)"><h4>苹果/配件</h4>
 					</a>
 						<hr></li>
 				</ul>
@@ -283,13 +284,75 @@
 				</a>
 			</div>
 			<!-- ad7 end -->
-
+<div id="newadd" onmouseover="showad(1)" onmouseout="showad(0)">
+<table >
+<tr><th>服装1</th><th>服装1</th><th>服装1</th><th>服装1</th>
+<th>服装1</th>
+</tr>
+</table>
+</div>
+<div id="newadd2" onmouseover="showad(2)" onmouseout="showad(0)">
+<table >
+<tr><th>鞋包1</th><th>鞋包1</th><th>鞋包1</th><th>鞋包1</th>
+<th>鞋包1</th>
+</tr>
+</table>
+</div>
+<div id="newadd3" onmouseover="showad(3)" onmouseout="showad(0)">
+<table >
+<tr><th>珠宝手表</th><th>珠宝手表</th><th>珠宝手表</th><th>珠宝手表</th>
+<th>珠宝手表</th>
+</tr>
+</table>
+</div>
+<div id="newadd4" onmouseover="showad(4)" onmouseout="showad(0)">
+<table >
+<tr><th>数码</th><th>数码</th><th>数码</th><th>数码</th>
+<th>数码</th>
+</tr>
+</table>
+</div>
+<div id="newadd5" onmouseover="showad(5)" onmouseout="showad(0)">
+<table >
+<tr><th>电子产品</th><th>电子产品</th><th>电子产品</th><th>电子产品</th>
+<th>电子产品</th>
+</tr>
+</table>
+</div>
+<div id="newadd6" onmouseover="showad(6)" onmouseout="showad(0)">
+<table >
+<tr><th>日用百货</th><th>日用百货</th><th>日用百货</th><th>日用百货</th>
+<th>日用百货</th>
+</tr>
+</table>
+</div>
+<div id="newadd7" onmouseover="showad(7)" onmouseout="showad(0)">
+<table >
+<tr><th>文化娱乐</th><th>文化娱乐</th><th>文化娱乐</th><th>文化娱乐</th>
+<th>文化娱乐</th>
+</tr>
+</table>
+</div>
+<div id="newadd8" onmouseover="showad(8)" onmouseout="showad(0)">
+<table >
+<tr><th>汽车用品</th><th>汽车用品</th><th>汽车用品</th><th>汽车用品</th>
+<th>汽车用品</th>
+</tr>
+</table>
+</div>
+<div id="newadd9" onmouseover="showad(9)" onmouseout="showad(0)">
+<table >
+<tr><th style="">苹果/配件</th><th>苹果/配件</th><th>苹果/配件</th><th>苹果/配件</th>
+<th>苹果/配件</th>
+</tr>
+</table>
+</div>
 		</div>
 		<!-- container end -->
 
 
 
-
+	
 		<a
 			href="http://moco.tmall.com/?ali_trackid=17_2b405ade5de0d6ae816d7b52f59bcbbf"
 			target="_blank"> <img alt="春夏新品特惠" src="images/ad1.png"

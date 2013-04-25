@@ -31,7 +31,7 @@
 <link rel="icon" href="logo.ico" mce_href="logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="logo.ico" mce_href="logo.ico"
 	type="image/x-icon">
-</head>
+<script type="text/javascript" src="js/register.js"></script></head>
 
 
 <body>
@@ -42,8 +42,25 @@
 				<h4 style="border-bottom:1px gray solid; text-align: center;"><%=gs.getG_name()%></h4>
 			</ul>
 			<ul id="info">
-				<li><a><img src="img/<%=gs.getG_images()%>">
-				</a></li>
+				<li id="info_1"><a id="image1"><img src="img/<%=gs.getG_images()%>">
+				</a>
+				<a id="image2"><img src="images/f2.jpg">
+				</a>
+			  <a id="image3"><img src="images/f3.jpg">
+				</a>
+				<a id="image4"><img src="images/f4.jpg">
+				</a>
+				</li>
+				<li>
+				<table border="1px" id="info_2">
+				<tr>
+				<td><a href="javascript:;" onmouseover="javascript:changeimage(1);"><img src="img/<%=gs.getG_images()%>"></a></td>
+				<td><a href="javascript:;" onmouseover="javascript:changeimage(2);"><img src="images/f2.jpg"></a></td>
+				<td><a href="javascript:;" onmouseover="javascript:changeimage(3);"><img src="images/f3.jpg"></a></td>
+				<td><a href="javascript:;" onmouseover="javascript:changeimage(4);"><img src="images/f4.jpg"></a></td>
+				</tr>
+				</table>
+				</li>
 			</ul>
 			<ul id="info2">
 				<%
@@ -51,7 +68,7 @@
 					float f1 = bd.setScale(1, BigDecimal.ROUND_HALF_UP).floatValue();
 				%>
 				<li>一口价：￥<%=f1%></li>
-				<li>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：免运费</li>
+				<li>购物满29元免运费</li>
 				<li><a
 					href="OrderServlet?flag=orderflash&id=<%=gs.getGoodsId()%>"><img
 						src="images/buynow.gif"></img> </a></li>
@@ -161,6 +178,28 @@
 				$("#goo_pinglun2").slideToggle("slow");
 			});
 		});
+	</script>
+	
+	<script type="text/javascript">
+	var showad = true; 
+	var Toppx = 200; //上端位置 
+	var AdDivW = 101; //宽度 
+	var AdDivH = 34; //高度 
+	var PageWidth = 800; //页面多少宽度象素下正好不出现左右滚动条 
+	var MinScreenW = 1024; //显示广告的最小屏幕宽度象素 
+
+	document.write ('<div id="Javascript.RightDiv" style="position: absolute;border: 1px solid #336699;background-color:#EEEEE2;z-index:1000;width:'+AdDivW+'px;height:'+AdDivH+'px;top:-1000px;word-break:break-all;display:none;"><div><a href="Javascript:;"><img src="images/chat.png" /></a></div></div>'); 
+
+
+	function scall(){ 
+	var Borderpx = ((window.screen.width-PageWidth)/2-AdDivW)/2; 
+	document.getElementById("Javascript.RightDiv").style.display=""; 
+	document.getElementById("Javascript.RightDiv").style.top=document.body.scrollTop+Toppx; 
+	document.getElementById("Javascript.RightDiv").style.left=document.body.scrollLeft+document.body.clientWidth-document.getElementById("Javascript.RightDiv").offsetWidth-Borderpx; 
+	} 
+	window.onscroll=scall; 
+	window.onresize=scall; 
+	window.onload=scall; 
 	</script>
 </body>
 </html>

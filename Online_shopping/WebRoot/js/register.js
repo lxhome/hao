@@ -164,6 +164,34 @@ function checkname() {
 	}
 }
 
+function changeimage(){
+	x=arguments[0];
+	if(x==1){
+		//alert(1)
+		document.getElementById("image1").style.display="block";
+		document.getElementById("image2").style.display="none";
+		document.getElementById("image3").style.display="none";
+		document.getElementById("image4").style.display="none";
+	}else if(x==2){
+		//alert(2)
+		document.getElementById("image1").style.display="none";
+		document.getElementById("image2").style.display="block";
+		document.getElementById("image3").style.display="none";
+		document.getElementById("image4").style.display="none";
+	}else if(x==3){
+		//alert(3)
+		document.getElementById("image1").style.display="none";
+		document.getElementById("image2").style.display="none";
+		document.getElementById("image3").style.display="block";
+		document.getElementById("image4").style.display="none";
+	}else if(x==4){
+		document.getElementById("image1").style.display="none";
+		document.getElementById("image2").style.display="none";
+		document.getElementById("image3").style.display="none";
+		document.getElementById("image4").style.display="block";
+	}
+}
+
 
 function $(id) {
 	return document.getElementById(id);

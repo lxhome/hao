@@ -99,13 +99,7 @@ $(document).ready(function(){
 
  
  
-<%--<div id="bank2" style="padding-top: 100px;">
- <div class="progress progress-striped active" >
-  <div class="bar" id="bar" style="width: 12%;"></div>
-</div>
-</div>
 
---%>
 </div>
 </body>
 </html>

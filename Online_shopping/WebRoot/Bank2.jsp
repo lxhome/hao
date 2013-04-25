@@ -33,16 +33,36 @@ success:function(msg){
         }}); 
 });  
 
+var bankflag = 0;
+
 $(document).ready(function(){
 $("#deng").click(function(){
-	location.href="BankServlet?flag=online&u="+u+"&m="+m;
+	var temp=document.getElementById("temp");
+    var temp2=document.getElementById("temp2");
+    temp.style.display="none";
+    temp2.style.display="block";
+    show();	
 });
 });
+
+function show() {
+	var red=document.getElementById("bar");
+	if (bankflag == 100) {
+		bankflag = 0;
+		clearTimeout(theTimer);	
+		location.href="BankServlet?flag=online&u="+u+"&m="+m;
+	} else {
+		bankflag++;
+		red.style.width = bankflag + "%";
+		theTimer = setTimeout("show()", 100);
+	}	
+}
+
 </script> 
 
-<div id="bank2" style="padding-top: 100px;">
+<div id="temp2" style="padding-top: 100px;display: none">
  <div class="progress progress-striped active" >
-  <div class="bar" id="bar" style="width: 12%;"></div>
+  <div class="bar" id="bar" style="width: 2%;"></div>
 </div>
 </div>
 

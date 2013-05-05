@@ -178,6 +178,10 @@
 				$("#goo_pinglun2").slideToggle("slow");
 			});
 		});
+		
+		function showMessage(){
+			alert(showModalDialog("Message.jsp","","dialogHeight:400px; dialogWidth:450px;"));
+		}
 	</script>
 	
 	<script type="text/javascript">
@@ -188,7 +192,7 @@
 	var PageWidth = 800; //页面多少宽度象素下正好不出现左右滚动条 
 	var MinScreenW = 1024; //显示广告的最小屏幕宽度象素 
 
-	document.write ('<div id="Javascript.RightDiv" style="position: absolute;border: 1px solid #336699;background-color:#EEEEE2;z-index:1000;width:'+AdDivW+'px;height:'+AdDivH+'px;top:-1000px;word-break:break-all;display:none;"><div><a href="Javascript:;"><img src="images/chat.png" /></a></div></div>'); 
+	document.write ('<div id="Javascript.RightDiv" style="position: absolute;border: 1px solid #336699;background-color:#EEEEE2;z-index:1000;width:'+AdDivW+'px;height:'+AdDivH+'px;top:-1000px;word-break:break-all;display:none;"><div><a href="Javascript:showMessage();"><img src="images/chat.png" /></a></div></div>'); 
 
 
 	function scall(){ 

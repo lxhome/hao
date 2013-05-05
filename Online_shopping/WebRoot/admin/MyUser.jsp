@@ -38,6 +38,8 @@
 			<tr>
 				<td><a href="admin/MyUser2.jsp">查看所有用户信息</a>
 				</td>
+				<td><a href="admin/ChatUser.jsp">用户联系</a>
+				</td>
 			</tr>
 		</table>
 	</div>

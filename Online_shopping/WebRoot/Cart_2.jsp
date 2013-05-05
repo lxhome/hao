@@ -43,7 +43,7 @@
 		<jsp:include page="Top.jsp"></jsp:include>
 		<div id="buy">
 			<h4>
-				<img src="images/mycart.gif" alt="alt" /> <a href="#">本商场默认为货到付款方式</a>
+				<img src="images/mycart.gif" alt="alt" /> 
 			</h4>
 			<table cellpadding="0" cellspacing="0">
 				<tbody>
@@ -85,9 +85,18 @@
 						OrdersCl oc = new OrdersCl();
 					%>
 					<tr>
-						<td colspan="2" style="padding-left: 270px;"><h4>
-								商品价值总共:<%=oc.getPrice(user.getName())%>元
+					<%if(oc.getPrice(user.getName())>=29){ %>
+					<td style="font-weight: bold;">邮费0元</td>
+					<td colspan="2" style="padding-left: 270px;"><h4>
+								总共:<%=oc.getPrice(user.getName())%>元
 							</h4></td>
+					<%} else { %>
+					<td style="font-weight: bold;">邮费29元(商品满29元免费)</td>
+					<td colspan="2" style="padding-left: 270px;"><h4>
+								总共:<%=oc.getPrice(user.getName())+29%>元
+							</h4></td>
+					<%} %>
+						
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;<%--<a href="#">返回上一步</a>
 						--%></td>
 					</tr>

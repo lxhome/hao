@@ -120,7 +120,7 @@ public class CartServlet extends HttpServlet {
 							request.getSession().setAttribute("name",name);
 							request.getSession().setAttribute("address", address);
 							request.getSession().setAttribute("phone", phone);
-		                       request.getRequestDispatcher("Bank.jsp").forward(
+		                       request.getRequestDispatcher("olbank.jsp").forward(
 										request, response);
 						}
 					} else {
